@@ -1,0 +1,60 @@
+# The new barangays no published boundary describes, approximated for the complete distribution only.
+# scripts/approximate_split.py cuts each from its mothers in the base adm4 (source below) with one straight
+# line, sized to a target area, and writes approximated.geojson and approximated-report.md beside this
+# file. Every shape it makes is indicative: geom_src = approximated, in dist/complete/ only.
+#
+# The cut: rule = "long-axis" cuts across the mother's longest dimension (its minimum rotated rectangle),
+# and the daughter is the end farther from the city's centre (the centroid of the city's barangays,
+# away_from_adm3). rule = "toward" cuts across the line from the mothers' centroid to a point, and the
+# daughter is the side nearer it.
+#
+# The size: size = "population" gives the daughter its mother's area times the daughter's share of the
+# pair's 2024 population (the 2026-3q PSGC datafile's 2024 CPH column); size = "area" gives it area m².
+
+source = "data/edit/20240210/ph_adm4_20240210.shp"
+publication = "2026-3q"
+
+[[split]]
+code = 1903617147
+name = "Sultan Corobong"
+mothers = ["PH1903617040"]  # Dulay
+mother_codes = [1903617040]
+basis = "City Ordinance No. 18-11, s. 2023 (Marawi); plebiscite 9 March 2024. The ordinance isn't published."
+size = "population"
+rule = "long-axis"
+away_from_adm3 = "PH1903617"  # City of Marawi
+
+[[split]]
+code = 1903617148
+name = "Sultan Panoroganan"
+mothers = ["PH1903617052"]  # Kilala
+mother_codes = [1903617052]
+basis = "City Ordinance No. 19-11, s. 2023 (Marawi); plebiscite 9 March 2024. The ordinance isn't published."
+size = "population"
+rule = "long-axis"
+away_from_adm3 = "PH1903617"
+
+[[split]]
+code = 1903617146
+name = "Angoyao"
+mothers = ["PH1903617099"]  # Patani
+mother_codes = [1903617099]
+basis = "City Ordinance No. 20-11, s. 2023 (Marawi); plebiscite 9 March 2024. The ordinance isn't published."
+size = "population"
+rule = "long-axis"
+away_from_adm3 = "PH1903617"
+
+[[split]]
+code = 1206317017
+name = "Juan-Loreto Tamayo"
+mothers = ["PH1206317004", "PH1206317009", "PH1206317011"]  # Cebuano, Linan, Miasong
+mother_codes = [1206317004, 1206317009, 1206317011]
+basis = """Sangguniang Panlalawigan Resolution No. 158, s. 2023 (South Cotabato); ratified by plebiscite in 2024.
+About 2,300 ha on the slopes of Mt. Matutum, from sitios of Cebuano (Pato, Landayaw), Linan (Alpha) and Miasong
+(Kitubo, Lamlatang): https://southcotabato.gov.ph/new-barangay-juan-loreto-tamayo-ratified-in-plebiscite and
+https://www.rappler.com/philippines/mindanao/new-village-juan-loreto-tamayo-named-after-governor-grandparents-created-isouth-cotabato"""
+size = "area"
+area = 23_000_000
+rule = "toward"
+# Mt. Matutum's summit, lon/lat (WGS 84): https://en.wikipedia.org/wiki/Mount_Matutum
+toward = [125.10833333, 6.43333333]

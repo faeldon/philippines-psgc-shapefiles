@@ -1,0 +1,398 @@
+# The raw source files the levels read, which are too big for git: assets of the repo's `sources`
+# GitHub release. scripts/sources.py fetches each to its path (gitignored) and checks its SHA-256
+# (CONTRACT 1). Written by `scripts/sources.py manifest`; a new source is a new entry.
+
+repo = "faeldon/philippines-psgc-shapefiles"
+tag = "sources"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.cpg"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.cpg"
+sha256 = "146d6789ffe033a5297c1ad046e6a62ee35319b86b021444f05b6ea2aa8a1f4a"
+size = 6
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.dbf"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.dbf"
+sha256 = "ee46053ed430674c6d48cbc86fd5cac37ee0725d09429637acd52f67694dee0c"
+size = 43730498
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.prj"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.prj"
+sha256 = "4e0fe7f616bb23140c8fc3a9f2154ce5149f4c9cad0d0e65c261558f5cad8e33"
+size = 146
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.sbn"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.sbn"
+sha256 = "4556097746aca7bb7ec5e6807b02301ace646663fe2e3b0aae8d199121f05bd1"
+size = 409044
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.sbx"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.sbx"
+sha256 = "1f3d53ada4c1183870bc55ce41b8c7c74476b341538ce53d017fb6effcb23cc4"
+size = 12020
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.shp"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.shp"
+sha256 = "a90587b5bf1579e6afb0309282f5e39d33c9c5d3974e32868eb9dfe30ef3b0e6"
+size = 272270908
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.shp.xml"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.shp.xml"
+sha256 = "b59bbc4d45686ca0dac72a3e63192bf8a91d2ef4b526e148ca8c0a648ede1903"
+size = 291964
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/BgySubMuns/phl_admbnda_adm4_psa_namria_20231106.shx"
+asset = "2023__BgySubMuns__phl_admbnda_adm4_psa_namria_20231106.shx"
+sha256 = "dc402a56a32a4d5420cd733d91fcc2c061bd0398e70d9a8647b6eb38e26b41dd"
+size = 336484
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.cpg"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.cpg"
+sha256 = "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+size = 5
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.dbf"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.dbf"
+sha256 = "1eebecec1c52845fa9c33a4fc73e2fa2559ee971f12fa5849dd4efb0071bc844"
+size = 593578
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.prj"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.prj"
+sha256 = "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+size = 145
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.sbn"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.sbn"
+sha256 = "025ec7117ecd5328332ce856c5a73bfc24f739c8ed70b7cd485b98655f912dd7"
+size = 34332
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.sbx"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.sbx"
+sha256 = "cc6ccb98f1e95015e987a071ce7da06f15e1ead1a1bacc0f8bf934b962a898f8"
+size = 1236
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.shp"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.shp"
+sha256 = "34b558ff9bbe25d1a814f4331872715320c266c2cf46cf089044bc1b73743b0a"
+size = 207570132
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.shp.xml"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.shp.xml"
+sha256 = "0f06319b34a441ee5fc04673c8af6cfab40828195a61715e7e9feec43d2e11a2"
+size = 259711
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.shx"
+asset = "2023__Country__phl_admbnda_adm0_singlepart_psa_namria_20231106.shx"
+sha256 = "fd4c7eebeca3abe9e3452cfa0f16f9f436f1f6e16c03f1357b019c24735e6fa7"
+size = 29220
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.cpg"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.cpg"
+sha256 = "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+size = 5
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.dbf"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.dbf"
+sha256 = "5c64c981e4f55653bdac4c101f50352b9926ab5289ea1b26859b9531b9c62e56"
+size = 1291158
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.prj"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.prj"
+sha256 = "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+size = 145
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.sbn"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.sbn"
+sha256 = "40aca82bedcd2372168130b8ba1d6b954abdcf801db83909921bb58a16f64f79"
+size = 15564
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.sbx"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.sbx"
+sha256 = "40f0b695ae820ffacfc5b2617adf7e6354da0cad440792e408081ec15601e4ad"
+size = 828
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.shp"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.shp"
+sha256 = "9a55599df67248f3b96ef656618b3b1974f85cdb44214b4e57739959f4c6960f"
+size = 221665516
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.shp.xml"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.shp.xml"
+sha256 = "fab1e799b6806c81e9397c5c7b0da1c3a7bec60d70da8b62e39af5a40319a7bb"
+size = 288506
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.shx"
+asset = "2023__Municities__phl_admbnda_adm3_psa_namria_20231106.shx"
+sha256 = "857c0f69180816e0bf54b463acdef2209483410b938aef7cd28d3f100863f5e4"
+size = 13236
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.cpg"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.cpg"
+sha256 = "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+size = 5
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.dbf"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.dbf"
+sha256 = "da5b00ec4ea90e241f71bf950f57aad27dbe57dee42307ff80b65b3f39f1a02e"
+size = 56418
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.prj"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.prj"
+sha256 = "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+size = 145
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.sbn"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.sbn"
+sha256 = "058bc646b5430c8e4d1e7e8302eb2c52ceb7deae85b098476423de8165bf750f"
+size = 972
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.sbx"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.sbx"
+sha256 = "4bf7a7d56ba01acf4d77a7a62c5600272d262307a713e3d5ce6abaa1f4269c97"
+size = 180
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.shp"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.shp"
+sha256 = "0bc5513357bdc62346babef36cc99fa7f2226ee54a8ac4c1cfe18a9f13e140eb"
+size = 210572648
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.shp.xml"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.shp.xml"
+sha256 = "c1196a2a3ee5afbb73c3a854c5919652446cde66cf5132a7029892b9d60df388"
+size = 287440
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.shx"
+asset = "2023__Provdists__phl_admbnda_adm2_psa_namria_20231106.shx"
+sha256 = "a511ecb435e68e49ff1dcc9f2c343c4818c9ddea765588cb2d01e7469054b3d0"
+size = 804
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.cpg"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.cpg"
+sha256 = "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+size = 5
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.dbf"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.dbf"
+sha256 = "3d19b3d5680711553722daa3069251a7488d6e59f59dcea8e7b3409c89d48629"
+size = 9498
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.prj"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.prj"
+sha256 = "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+size = 145
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.sbn"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.sbn"
+sha256 = "43306bafe92e8506281dde6bbc2e33130c00eb5c803e1e3591f1ef5b4338e7d5"
+size = 276
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.sbx"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.sbx"
+sha256 = "70b92266e81623c22014962db47f5eb1ef06b0e5a9aeb43d71f615719af6c714"
+size = 124
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.shp"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.shp"
+sha256 = "782149018053c008a854b6f06ec4762cba4a4688e35555ca9c5f6d0ae05b89d9"
+size = 208755060
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.shp.xml"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.shp.xml"
+sha256 = "167f389ac0a383e2dcd789941bdbf5e2aa9d2e619e96f1c9fcebd945392d214d"
+size = 275273
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.shx"
+asset = "2023__Regions__phl_admbnda_adm1_psa_namria_20231106.shx"
+sha256 = "82a368b4376d28700a009f296dfaa10ba0816213623e0cf76676784bc5a1e0aa"
+size = 236
+origin = "OCHA COD-AB Philippines of 2023-11-06 (phl_admbnda_admN_psa_namria_20231106), by NAMRIA and PSA, CC BY-IGO: https://data.humdata.org/dataset/cod-ab-phl (HDX replaced these files with its v03 on 2026-05-28)"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.cpg"
+asset = "edit__20240210__ph_adm4_20240210.cpg"
+sha256 = "146d6789ffe033a5297c1ad046e6a62ee35319b86b021444f05b6ea2aa8a1f4a"
+size = 6
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.dbf"
+asset = "edit__20240210__ph_adm4_20240210.dbf"
+sha256 = "1eb6c7738a6ec279a49a3bfdd2c8ebe020b3769078123d120933d1f949179f14"
+size = 65050698
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.prj"
+asset = "edit__20240210__ph_adm4_20240210.prj"
+sha256 = "4e0fe7f616bb23140c8fc3a9f2154ce5149f4c9cad0d0e65c261558f5cad8e33"
+size = 146
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.qmd"
+asset = "edit__20240210__ph_adm4_20240210.qmd"
+sha256 = "47cf6440ada3c02b354ccc658e8ac45b7542db7e273e6ac5f7d635afc3af83c5"
+size = 677
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.shp"
+asset = "edit__20240210__ph_adm4_20240210.shp"
+sha256 = "df50de1fffb990f5bace8c16110aa633af890e461e35bae006663a65081e0750"
+size = 272258944
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/edit/20240210/ph_adm4_20240210.shx"
+asset = "edit__20240210__ph_adm4_20240210.shx"
+sha256 = "c6f601a1fdec8b35f37bb3d14c8a53e4766ea7f7b95cf63ae9f2e0dc4f7e1c9f"
+size = 336276
+origin = "this repo's hand edit (QGIS) of the 2023 adm4, for the PSGC's 3Q 2023 merges and splits"
+
+[[file]]
+path = "data/2015/Barangays.zip"
+asset = "2015__Barangays.zip"
+sha256 = "9144ec02a12fc4ab62132ce2cbab33683ac98768343943ef780b9fdda2f1bbe2"
+size = 180699027
+origin = "OCHA's 2015 Level 0-3 shapefiles (no longer available) and the Level 4 shapefiles of https://github.com/justinelliotmeyers/official_philippines_shapefile_data_2016"
+
+[[file]]
+path = "data/2015/Country.zip"
+asset = "2015__Country.zip"
+sha256 = "aadd406d2f46c64e1df344f7d3f6ff70ff7ed35909e5b11905c7a5f6c1122d39"
+size = 139895598
+origin = "OCHA's 2015 Level 0-3 shapefiles (no longer available) and the Level 4 shapefiles of https://github.com/justinelliotmeyers/official_philippines_shapefile_data_2016"
+
+[[file]]
+path = "data/2015/Municities.zip"
+asset = "2015__Municities.zip"
+sha256 = "52aa65b6d5c6a191ce1896acf56ea5f93a9682b61e9320a2b45b7b398253baab"
+size = 150165509
+origin = "OCHA's 2015 Level 0-3 shapefiles (no longer available) and the Level 4 shapefiles of https://github.com/justinelliotmeyers/official_philippines_shapefile_data_2016"
+
+[[file]]
+path = "data/2015/Provinces.zip"
+asset = "2015__Provinces.zip"
+sha256 = "23ab992201fa73ae2111b57e4bf2be9d90f461fa928fbcdcdaf4b6322443e689"
+size = 142179186
+origin = "OCHA's 2015 Level 0-3 shapefiles (no longer available) and the Level 4 shapefiles of https://github.com/justinelliotmeyers/official_philippines_shapefile_data_2016"
+
+[[file]]
+path = "data/2015/Regions.zip"
+asset = "2015__Regions.zip"
+sha256 = "da6e9f1b38a62ee6844c8f126e3dbabefd98ea282afa2d3de2f87026099edf0f"
+size = 140886782
+origin = "OCHA's 2015 Level 0-3 shapefiles (no longer available) and the Level 4 shapefiles of https://github.com/justinelliotmeyers/official_philippines_shapefile_data_2016"
+
+[[file]]
+path = "data/2011/Barangays.zip"
+asset = "2011__Barangays.zip"
+sha256 = "23e4b5bb1a6bf95206d2db39e464416b80f15ea803e6ebd1e3d537a19bc42ac2"
+size = 11257206
+origin = "GADM's Level 0-4 shapefiles: https://gadm.org"
+
+[[file]]
+path = "data/2011/Country.zip"
+asset = "2011__Country.zip"
+sha256 = "d3e70a5c302ae6b6736798b735030e548d2f8e4e8b4b8932951a830505b26e28"
+size = 3379386
+origin = "GADM's Level 0-4 shapefiles: https://gadm.org"
+
+[[file]]
+path = "data/2011/Municities.zip"
+asset = "2011__Municities.zip"
+sha256 = "d5c1d08de9b444b919ea1528627ddc23836e7dbd82d41c6dae7d69b19bfccd43"
+size = 4956005
+origin = "GADM's Level 0-4 shapefiles: https://gadm.org"
+
+[[file]]
+path = "data/2011/Provinces.zip"
+asset = "2011__Provinces.zip"
+sha256 = "06642929af1d8bb05abf625f72f8c6609ca084e2b082f08aad55388d6fdb6501"
+size = 3725120
+origin = "GADM's Level 0-4 shapefiles: https://gadm.org"
+
+[[file]]
+path = "data/2011/Regions.zip"
+asset = "2011__Regions.zip"
+sha256 = "81cf1297622c2a3b6a7a26e1ff7601a9860a61915c4c120dca0dc6875270144a"
+size = 3961085
+origin = "GADM's Level 0-4 shapefiles: https://gadm.org"

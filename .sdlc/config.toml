@@ -1,0 +1,36 @@
+[commands]
+# The gate /sdlc:ship runs on every diff: tests, and the black, flake8 and pylint checks CI's
+# validation only annotates. --no-sync keeps it offline; the environment comes from worktree_setup.
+# It checks code, not the data in dist/.
+check = "uv run --no-sync pytest && uv run --no-sync black --check src scripts && uv run --no-sync flake8 src scripts && uv run --no-sync pylint src scripts"
+# The slower check: regenerate every level into a temp dir (never dist/), check CONTRACT 2 on it with
+# its zips, and diff its CSVs against the committed dist/ (CSV-only: the zips are release assets). A
+# change meant to alter dist/ commits the regenerated CSVs. Needs the fetched raw sources
+# (scripts/sources.py fetch); about 4 minutes.
+build = 'out=$(mktemp -d) && uv run --no-sync python scripts/regenerate.py "$out" && uv run --no-sync python scripts/check_dist.py check "$out/dist" && uv run --no-sync python scripts/check_dist.py diff dist "$out/dist"'
+build_when = '^(src/|scripts/|data/|pyproject\.toml|uv\.lock)'
+# requires-python (>=3.12,<3.13) makes uv pick 3.12, as CI runs. --locked fails if uv.lock is out of
+# step with the pins. sources.py fetch hard-links the raw sources from the main checkout (downloading
+# from the sources release only what it lacks), so a worktree can build.
+worktree_setup = "uv --directory {worktree} sync --quiet --extra test --locked && uv --directory {worktree} run --no-sync python scripts/sources.py fetch"
+
+[archive]
+# Changes are numbered by their GitHub issue on faeldon/philippines-psgc-shapefiles.
+target = "github"
+
+[release]
+# /sdlc:release bumps pyproject.toml's version (and uv.lock with it), commits and tags v{version};
+# /sdlc:publish pushes main and the tag, then uploads the quarter's build that
+# `scripts/publish_release.py prepare` staged and the maintainer approved (CONTRACT 3). The notes
+# live on the GitHub release: CHANGELOG.md is the PSGC updates table, so no `changelog` is set.
+version_files = ["pyproject.toml"]
+after_bump = "uv lock"
+publish = "uv run --no-sync python scripts/publish_release.py upload --tag {tag}"
+
+[retro]
+# Counts only, for the product pass. Traffic needs push access and covers 14 days.
+evidence = [
+  "gh issue list --state all --limit 500 --json state --jq 'group_by(.state) | map({state: .[0].state, n: length})'",
+  "gh api repos/faeldon/philippines-psgc-shapefiles/traffic/clones --jq '{count, uniques}'",
+  "gh api repos/faeldon/philippines-psgc-shapefiles --jq '{stars: .stargazers_count, forks: .forks_count}'",
+]

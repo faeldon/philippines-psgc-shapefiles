@@ -1,0 +1,332 @@
+# Test fixture: a hypothetical next quarter, made from releases/2023-4q.toml with two changes and no code
+# change: it joins a new publication (tests/fixtures/psgc/next/, whose datafile gains a blank first
+# column and has no NCR district rows, as the 2024+ datafiles do), and municities gains one override.
+
+id = "next"
+
+[psgc]
+publication = "next"
+
+[sources.country]
+path = "data/2023/Country/phl_admbnda_adm0_singlepart_psa_namria_20231106.shp"
+columns = [
+    "shape_len",
+    "shape_area",
+    "adm0_en",
+    "adm0_pcode",
+    "date",
+    "valid_on",
+    "valid_to",
+    "geometry",
+]
+
+[sources.region]
+path = "data/2023/Regions/phl_admbnda_adm1_psa_namria_20231106.shp"
+columns = [
+    "adm1_en",
+    "adm1_pcode",
+    "adm0_en",
+    "adm0_pcode",
+    "date",
+    "valid_on",
+    "valid_to",
+    "shape_len",
+    "shape_area",
+    "adm1_alt",
+    "shape_sqkm",
+    "geometry",
+]
+
+[sources.provdists]
+path = "data/2023/Provdists/phl_admbnda_adm2_psa_namria_20231106.shp"
+columns = [
+    "adm2_en",
+    "adm2_pcode",
+    "adm1_en",
+    "adm1_pcode",
+    "adm0_en",
+    "adm0_pcode",
+    "date",
+    "valid_on",
+    "valid_to",
+    "shape_len",
+    "shape_area",
+    "adm2_alt",
+    "shape_sqkm",
+    "geometry",
+]
+
+[sources.municities]
+path = "data/2023/Municities/phl_admbnda_adm3_psa_namria_20231106.shp"
+columns = [
+    "adm3_en",
+    "adm3_pcode",
+    "adm2_en",
+    "adm2_pcode",
+    "adm1_en",
+    "adm1_pcode",
+    "adm0_en",
+    "adm0_pcode",
+    "date",
+    "valid_on",
+    "valid_to",
+    "adm3_ref",
+    "adm3_alt",
+    "shape_len",
+    "shape_area",
+    "shape_sqkm",
+    "geometry",
+]
+
+[sources.bgysubmuns]
+# The hand-edited adm4 (QGIS), not the raw data/2023/BgySubMuns file.
+path = "data/edit/20240210/ph_adm4_20240210.shp"
+columns = [
+    "adm4_en",
+    "adm4_pcode",
+    "adm4_ref",
+    "adm3_en",
+    "adm3_pcode",
+    "adm2_en",
+    "adm2_pcode",
+    "adm1_en",
+    "adm1_pcode",
+    "adm0_en",
+    "adm0_pcode",
+    "date",
+    "valid_on",
+    "valid_to",
+    "shape_len",
+    "shape_area",
+    "shape_sqkm",
+    "layer",
+    "path",
+    "geometry",
+]
+
+[provdists]
+overrides = [
+  { old = 909700000, new = 990100000, adm2_pcode = "P09901", note = "City of Isabela (Not a Province)" },
+  { old = 1909900000, new = 1999900000, adm2_pcode = "P19999", note = "Interim Province Code for 63 barangays of BARMM: the shapefile has 1909900000" },
+]
+# PSGC rows kept at adm2 besides the Prov and Dist levels.
+extra_names = ["City of Isabela (Not a Province)"]
+extra_codes = [1999900000]  # BARMM interim province, in the PSGC table without a geo_level
+
+[municities]
+# Unchecked: Tacloban moves 831600000 → 803747000 and later back, and Angeles has two overrides from
+# different old codes. Kept as they were; see work/096-modular-pipeline/notes.md.
+overrides = [
+  { old = 305401000, new = 330100000, note = "City of Angeles" },
+  { old = 307107000, new = 331400000, note = "City of Olongapo" },
+  { old = 405624000, new = 431200000, note = "City of Lucena" },
+  { old = 603022000, new = 631000000, note = "City of Iloilo" },
+  { old = 604501000, new = 630200000, note = "City of Bacolod" },
+  { old = 702217000, new = 730600000, note = "City of Cebu" },
+  { old = 702226000, new = 731100000, note = "City of Lapu-Lapu" },
+  { old = 702230000, new = 731300000, note = "City of Mandaue" },
+  { old = 831600000, new = 803747000, note = "City of Tacloban" },
+  { old = 907332000, new = 931700000, note = "City of Zamboanga" },
+  { old = 302401000, new = 330100000, note = "City of Angeles" },
+  { old = 803747000, new = 831600000, note = "City of Tacloban" },
+  { old = 909701000, new = 990101000, note = "City of Isabela" },
+  { old = 1004305000, new = 1030500000, note = "City of Cagayan de Oro" },
+  { old = 1003504000, new = 1030900000, note = "City of Iligan" },
+  { old = 1102402000, new = 1130700000, note = "City of Davao" },
+  { old = 1206303000, new = 1230800000, note = "City of General Santos" },
+  { old = 1307501000, new = 1380100000, note = "City of Caloocan" },
+  { old = 1303901000, new = 1380600000, note = "City of Manila" },
+  { old = 1307402000, new = 1380700000, note = "City of Marikina" },
+  { old = 1307401000, new = 1380500000, note = "City of Mandaluyong" },
+  { old = 1307403000, new = 1381200000, note = "City of Pasig" },
+  { old = 1307503000, new = 1380900000, note = "City of Navotas" },
+  { old = 1307603000, new = 1380800000, note = "City of Muntinlupa" },
+  { old = 1307502000, new = 1380400000, note = "City of Malabon" },
+  { old = 1307602000, new = 1380300000, note = "City of Makati" },
+  { old = 1307601000, new = 1380200000, note = "City of Las Pi\u00f1as" },
+  { old = 1600202000, new = 1630400000, note = "City of Butuan" },
+  { old = 1401102000, new = 1430300000, note = "City of Baguio" },
+  { old = 1307606000, new = 1381701000, note = "Pateros" },
+  { old = 1307504000, new = 1381600000, note = "City of Valenzuela" },
+  { old = 1307607000, new = 1381500000, note = "City of Taguig" },
+  { old = 1307405000, new = 1381400000, note = "City of San Juan" },
+  { old = 1307404000, new = 1381300000, note = "Quezon City" },
+  { old = 1307605000, new = 1381100000, note = "Pasay City" },
+  { old = 1307604000, new = 1381000000, note = "City of Para\u00f1aque" },
+  { old = 1705316000, new = 1731500000, note = "City of Puerto Princesa" },
+  { old = 1908718000, new = 1908701000, note = "Barira" },
+  { old = 1908730000, new = 1908704000, note = "Datu Blah T. Sinsuat" },
+  { old = 1908734000, new = 1908708000, note = "Northern Kabuntalan" },
+  { old = 1908715000, new = 1908713000, note = "Upi" },
+  { old = 1908831000, new = 1908804000, note = "Datu Anggal Midtimbang" },
+  { old = 1908826000, new = 1908809000, note = "Datu Saudi Ampatuan" },
+  { old = 1908825000, new = 1908812000, note = "Guindulungan" },
+  { old = 1908833000, new = 1908818000, note = "Pandag" },
+  { old = 1908832000, new = 1908814000, note = "Mangudadatu" },
+  { old = 1908837000, new = 1908821000, note = "Shariff Saydona Mustapha" },
+  { old = 1908712000, new = 1908710000, note = "Sultan Kudarat" },
+  { old = 1908816000, new = 1908824000, note = "Talayan" },
+  { old = 1908822000, new = 1908815000, note = "Pagagawan" },
+  { old = 1908819000, new = 1908811000, note = "Gen. S.K. Pendatun" },
+  { old = 1908806000, new = 1908807000, note = "Datu Piang" },
+  { old = 1908803000, new = 1908802000, note = "Buluan" },
+  { old = 1908721000, new = 1908712000, note = "Talitay" },
+  { old = 1908714000, new = 1908706000, note = "Kabuntulan" },
+  { old = 1908707000, new = 1908705000, note = "Datu Odin Sinsuat" },
+  { old = 1908709000, new = 1908707000, note = "Matanog" },
+  { old = 1908828000, new = 1908803000, note = "Datu Abdullah Sangki" },
+  { old = 1908805000, new = 1908806000, note = "Datu Paglas" },
+  { old = 1908810000, new = 1908816000, note = "Pagalungan" },
+  { old = 1908829000, new = 1908819000, note = "Rajah Buayan" },
+  { old = 1908817000, new = 1908822000, note = "South Upi" },
+  { old = 1908711000, new = 1908709000, note = "Parang" },
+  { old = 1908835000, new = 1908805000, note = "Datu Hoffer Ampatuan" },
+  { old = 1908827000, new = 1908810000, note = "Datu Unsay" },
+  { old = 1908823000, new = 1908817000, note = "Paglat" },
+  { old = 1908724000, new = 1908711000, note = "Sultan Mastura" },
+  { old = 1908813000, new = 1908823000, note = "Sultan Sa Barongis" },
+  { old = 1908820000, new = 1908813000, note = "Mamasapano" },
+  { old = 1908808000, new = 1908820000, note = "Shariff Aguak" },
+  { old = 1908836000, new = 1908808000, note = "Datu Salibo" },
+  { old = 102801000, new = 102899000, note = "Next quarter: a new code" },
+  # Special Geographic Areas
+  { old = 1909901000, new = 1999901000, note = "Carmen Cluster" },
+  { old = 1909902000, new = 1999902000, note = "Kabacan Cluster" },
+  { old = 1909903000, new = 1999903000, note = "Midsayap Cluster I" },
+  { old = 1909904000, new = 1999904000, note = "Midsayap Cluster II" },
+  { old = 1909905000, new = 1999905000, note = "Pigcawayan Cluster" },
+  { old = 1909906000, new = 1999906000, note = "Pikit Cluster I" },
+  { old = 1909907000, new = 1999907000, note = "Pikit Cluster II" },
+  { old = 1909908000, new = 1999908000, note = "Pikit Cluster III" },
+]
+
+# The adm2 parent of each city PSA places under no province: its NCR district, or the province it
+# sits in, taken from the source shapefile's ADM2_PCODE. Used for the city in adm3 and its barangays
+# in adm4. NCR: https://github.com/faeldon/philippines-json-maps/issues/3; Davao City:
+# https://github.com/faeldon/philippines-json-maps/issues/4.
+city_adm2 = [
+  { city = 1380100000, adm2 = 1307500000, note = "City of Caloocan \u2192 NCR Third District" },
+  { city = 1380200000, adm2 = 1307600000, note = "City of Las Pi\u00f1as \u2192 NCR Fourth District" },
+  { city = 1380300000, adm2 = 1307600000, note = "City of Makati \u2192 NCR Fourth District" },
+  { city = 1380400000, adm2 = 1307500000, note = "City of Malabon \u2192 NCR Third District" },
+  { city = 1380500000, adm2 = 1307400000, note = "City of Mandaluyong \u2192 NCR Second District" },
+  { city = 1380600000, adm2 = 1303900000, note = "City of Manila \u2192 NCR First District" },
+  { city = 1380700000, adm2 = 1307400000, note = "City of Marikina \u2192 NCR Second District" },
+  { city = 1380800000, adm2 = 1307600000, note = "City of Muntinlupa \u2192 NCR Fourth District" },
+  { city = 1380900000, adm2 = 1307500000, note = "City of Navotas \u2192 NCR Third District" },
+  { city = 1381000000, adm2 = 1307600000, note = "City of Para\u00f1aque \u2192 NCR Fourth District" },
+  { city = 1381100000, adm2 = 1307600000, note = "Pasay City \u2192 NCR Fourth District" },
+  { city = 1381200000, adm2 = 1307400000, note = "City of Pasig \u2192 NCR Second District" },
+  { city = 1381300000, adm2 = 1307400000, note = "Quezon City \u2192 NCR Second District" },
+  { city = 1381400000, adm2 = 1307400000, note = "City of San Juan \u2192 NCR Second District" },
+  { city = 1381500000, adm2 = 1307600000, note = "City of Taguig \u2192 NCR Fourth District" },
+  { city = 1381600000, adm2 = 1307500000, note = "City of Valenzuela \u2192 NCR Third District" },
+  { city = 1381701000, adm2 = 1307600000, note = "Pateros \u2192 NCR Fourth District" },
+  { city = 1130700000, adm2 = 1102400000, note = "City of Davao \u2192 Davao del Sur" },
+  { city = 330100000, adm2 = 305400000, note = "City of Angeles \u2192 Pampanga" },
+  { city = 331400000, adm2 = 307100000, note = "City of Olongapo \u2192 Zambales" },
+  { city = 431200000, adm2 = 405600000, note = "City of Lucena \u2192 Quezon" },
+  { city = 630200000, adm2 = 604500000, note = "City of Bacolod \u2192 Negros Occidental" },
+  { city = 631000000, adm2 = 603000000, note = "City of Iloilo \u2192 Iloilo" },
+  { city = 730600000, adm2 = 702200000, note = "City of Cebu \u2192 Cebu" },
+  { city = 731100000, adm2 = 702200000, note = "City of Lapu-Lapu \u2192 Cebu" },
+  { city = 731300000, adm2 = 702200000, note = "City of Mandaue \u2192 Cebu" },
+  { city = 831600000, adm2 = 803700000, note = "City of Tacloban \u2192 Leyte" },
+  { city = 931700000, adm2 = 907300000, note = "City of Zamboanga \u2192 Zamboanga del Sur" },
+  { city = 1030500000, adm2 = 1004300000, note = "City of Cagayan de Oro \u2192 Misamis Oriental" },
+  { city = 1030900000, adm2 = 1003500000, note = "City of Iligan \u2192 Lanao del Norte" },
+  { city = 1230800000, adm2 = 1206300000, note = "City of General Santos \u2192 South Cotabato" },
+  { city = 1430300000, adm2 = 1401100000, note = "City of Baguio \u2192 Benguet" },
+  { city = 1630400000, adm2 = 1600200000, note = "City of Butuan \u2192 Agusan del Norte" },
+  { city = 1731500000, adm2 = 1705300000, note = "City of Puerto Princesa \u2192 Palawan" },
+]
+
+[bgysubmuns]
+# Source codes ending 900 and up are forest reserves, unclaimed areas and watersheds, dropped except
+# in old Manila (keep_reserved_prefix), where they are Manila North Cemetery and Tutuban.
+reserved_min = 900
+keep_reserved_prefix = "PH13039"
+# Special Geographic Areas: the shapefile's 19099… codes are PSGC's 19999….
+sga_from_prefix = "19099"
+sga_to_prefix = "19999"
+# Manila's sub-municipalities, and its pre-2021 code, sit under the City of Manila.
+manila = { ncr = 1300000000, city = 1380600000, old = 1303901000 }
+# Source polygons that aren't PSGC barangays, kept in adm4 under their source names.
+non_barangay_areas = [
+  { code = 1303901906, name = "Manila North Cemetery" },
+  { code = 1303901907, name = "Tutuban Mall (Claimed by Five Barangays of Tondo, Manila)" },
+]
+# Stage 1 of the adm4 matching, in order.
+overrides = [
+  { old = 1908707001, new = 1908705001, note = "Ambolodto" },
+  { old = 1908707002, new = 1908705002, note = "Awang" },
+  { old = 1908718001, new = 1908701001, note = "Barira" },
+  { old = 1908709001, new = 1908707001, note = "Bayanga Norte" },
+  { old = 1908709002, new = 1908707002, note = "Bayanga Sur" },
+  { old = 1908711014, new = 1908709001, note = "Bongo Island" },
+  { old = 1908721002, new = 1908712001, adm4_en = "Bintan (Bentan)", note = "Bintan" },
+  { old = 1908714003, new = 1908706003, note = "Dadtumog" },
+  { old = 1908712012, new = 1908710008, note = "Dalumangcob" },
+  { old = 1908805014, new = 1908806008, note = "Kalumenga" },
+  { old = 1908712028, new = 1908710016, note = "Katamlangan" },
+  { old = 1908833003, new = 1908818003, note = "Kayupo" },
+  { old = 1908715017, new = 1908713013, note = "Kinitan" },
+  { old = 1908724006, new = 1908711006, note = "Macabico" },
+  { old = 1908831004, new = 1908804004, note = "Midtimbang" },
+  { old = 1908831005, new = 1908804005, note = "Nunangan" },
+  { old = 1908837016, new = 1908821013, note = "Pagatin (Pagatin I)" },
+  { old = 1908837011, new = 1908821012, note = "Pagatin" },
+  { old = 1908712037, new = 1908710031, note = "Pigkelegan" },
+  { old = 1908806034, new = 1908807015, note = "Poblacion" },
+  { old = 1908711020, new = 1908709020, note = "Poblacion" },
+  { old = 1908817010, new = 1908822010, note = "Romangaob" },
+  { old = 1908829010, new = 1908819010, note = "Sapakan" },
+  { old = 1908707030, new = 1908705028, note = "Sifaren" },
+  { old = 1908828010, new = 1908803010, note = "Tukanolocong" },
+  { old = 1908806001, new = 1908807001, note = "Alonganan" },
+  { old = 1908805001, new = 1908806001, note = "Alip" },
+  { old = 1908820002, new = 1908813002, note = "Dabenayan" },
+  { old = 1908808004, new = 1908820002, note = "Bialong" },
+  { old = 1908822001, new = 1908815001, note = "Balatungkayo" },
+  { old = 1908817002, new = 1908822001, note = "Biarong" },
+  { old = 1908712001, new = 1908710001, adm4_en = "Alamada", note = "Alamada" },
+  { old = 1908823001, new = 1908817002, note = "Damakling" },
+  { old = 1908813001, new = 1908823001, note = "Angkayamat" },
+  { old = 1908822002, new = 1908815002, adm4_en = "Bulit" },
+  { old = 1908817003, new = 1908822002, note = "Bongo" },
+  { old = 1908808002, new = 1908820001, note = "Bagong" },
+  { old = 1908813003, new = 1908823002, adm4_en = "Barurao" },
+  { old = 1908709003, new = 1908707003, adm4_en = "Bugasan Norte" },
+  { old = 1908709004, new = 1908707004, adm4_en = "Bugasan Sur (Pob.)" },
+  { old = 1908805003, new = 1908806005, adm4_en = "Damawato" },
+  { old = 1908810008, new = 1908816005, adm4_en = "Galakit" },
+  { old = 1908817004, new = 1908822003, adm4_en = "Itaw" },
+  { old = 1908709005, new = 1908707005, adm4_en = "Kidama" },
+  { old = 1908817005, new = 1908822004, adm4_en = "Kigan" },
+  { old = 1908702012, new = 1908702008, adm4_en = "Kulimpang" },
+  { old = 1908817001, new = 1908822005, adm4_en = "Kuya" },
+  { old = 1908817006, new = 1908822006, adm4_en = "Lamud" },
+  { old = 1908709008, new = 1908707006, adm4_en = "Langco" },
+  { old = 1908709009, new = 1908707007, adm4_en = "Langkong" },
+  { old = 1908819008, new = 1908811006, adm4_en = "Lasangan" },
+  { old = 1908817007, new = 1908822007, adm4_en = "Looy" },
+  { old = 1908805007, new = 1908806015, adm4_en = "Mangadeg" },
+  { old = 1908711008, new = 1908709005, adm4_en = "Gadungan" },
+  { old = 1908813008, new = 1908823005, adm4_en = "Gadungan" },
+  { old = 1908813013, new = 1908823006, adm4_en = "Kulambog" },
+  { old = 1908702012, new = 1908702008, adm4_en = "Kulimpang" },
+  { old = 1908808011, new = 1908820003, adm4_en = "Kuloy" },
+  { old = 1908702017, new = 1908702009, adm4_en = "Mataya" },
+  { old = 1908817008, new = 1908822008, adm4_en = "Pandan" },
+  { old = 1908805010, new = 1908806021, adm4_en = "Puya" },
+  { old = 1908813004, new = 1908823003, adm4_en = "Bulod" },
+  { old = 1908813006, new = 1908823004, adm4_en = "Darampua" },
+  { old = 1908709007, new = 1908707008, adm4_en = "Sapad" },
+  { old = 1908702017, new = 1908702009, adm4_en = "Mataya" },
+  { old = 1908808012, new = 1908820004, adm4_en = "Labu-labu" },
+]
+
+[debug]
+# Logged after every adm4 matching pass.
+barangay = "Kulimpang"
+psgc = 1908702008

@@ -1,0 +1,47 @@
+# Test fixture: a hypothetical next publication whose datafile gains a blank first column and has no
+# NCR district rows (as the 2024+ datafiles do). Its raw files don't exist; only psgc.csv is read.
+
+id = "next"
+as_of = "2099-03-31"
+announcement = "https://psa.gov.ph/classification/psgc"
+
+[[files]]
+role = "datafile"
+name = "PSGC-1Q-2099-Publication-Datafile.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-1Q-2099-Publication-Datafile.xlsx"
+sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+sheets = { psgc = "PSGC", national_summary = "National Summary", prov_summary = "Prov Sum" }
+
+[[files]]
+role = "summary_of_changes"
+name = "PSGC-1Q-2099-Summary-of-Changes.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-1Q-2099-Summary-of-Changes.xlsx"
+sha256 = "0000000000000000000000000000000000000000000000000000000000000000"
+sheets = { log = "2001-present" }
+sections = ["January to March 2099"]
+
+[layout]
+columns = [
+    "_blank",      # (blank first column)
+    "psgc_code",   # 10-digit PSGC
+    "name",        # Name
+    "corr_code",   # Correspondence Code
+    "geo_level",   # Geographic Level
+    "old_names",   # Old names
+    "city_class",  # City Class
+    "inc_class",   # Income Classification
+    "urb_rur",     # Urban / Rural (based on 2020 CPH)
+    "pop_2015",    # 2015 Population
+    "_blank_9",    # (no header)
+    "pop_2020",    # 2020 Population
+    "_blank_11",   # (no header)
+    "status",      # Status
+]
+drop = ["_blank", "_blank_9", "_blank_11"]
+# This datafile has no NCR district rows, so add_rows adds them.
+add_rows = [
+  { code = 1303900000, name = "NCR, City of Manila, First District (Not a Province)", geo_level = "Dist" },
+  { code = 1307400000, name = "NCR, Second District (Not a Province)", geo_level = "Dist" },
+  { code = 1307500000, name = "NCR, Third District (Not a Province)", geo_level = "Dist" },
+  { code = 1307600000, name = "NCR, Fourth District (Not a Province)", geo_level = "Dist" },
+]

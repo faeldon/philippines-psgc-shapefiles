@@ -1,0 +1,3 @@
+adm1_psgc,adm2_psgc,adm3_psgc,adm4_psgc,adm4_en,geo_level,geom_src,len_crs,area_crs,len_km,area_km2
+100000000,102800000,102801000,102801001,Adams,Bgy,source,100,100000,0,0.0
+200000000,200900000,200901000,200901001,Chanarian,Bgy,source,90,90000,0,0.0

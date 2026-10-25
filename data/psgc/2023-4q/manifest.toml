@@ -1,0 +1,48 @@
+# PSA's 2023-4q PSGC publication: its raw files in data/psgc/raw/2023-4q/ and their extract here.
+
+id = "2023-4q"
+as_of = "2023-12-31"
+announcement = "https://psa.gov.ph/classification/psgc/node/1684061953"
+note = "PSA's link served a different file on 2026-10-25 (3,882,190 bytes, SHA-256 d8ed46b8e58a1cfae737187b8f98d4739704587e2bf1d4f0c4fee8600dc7a37d) than this one, which the repo committed on 2026-10-23 and dist/ was built from."
+
+[[files]]
+role = "datafile"
+name = "PSGC-4Q-2023-Publication-Datafile.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-4Q-2023-Publication-Datafile.xlsx"
+sha256 = "130016388e6dd70c9de96590b81f3a718f2b31c3cdacfe921e75517681b5d8a9"
+sheets = { psgc = "PSGC", national_summary = "Nat'l Sum", prov_summary = "Prov Sum" }
+
+[[files]]
+role = "summary_of_changes"
+name = "PSGC-4Q-2023-Summary-of-Changes.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-4Q-2023-Summary-of-Changes.xlsx"
+sha256 = "d6140e67a62fc2055b5404c97d0fd07f8ae697af7623ddb0840b8cdc6e685969"
+sheets = { log = "2001-present" }
+# The log's sections that are this publication's.
+sections = ["* September to December 2023 (NO UPDATES)"]
+
+[layout]
+# The PSGC sheet's columns, by position (PSA's header beside each).
+columns = [
+    "psgc_code",   # 10-digit PSGC
+    "name",        # Name
+    "corr_code",   # Correspondence Code
+    "geo_level",   # Geographic Level
+    "old_names",   # Old names
+    "city_class",  # City Class
+    "inc_class",   # Income Classification
+    "urb_rur",     # Urban / Rural (based on 2020 CPH)
+    "pop_2015",    # 2015 Population
+    "_blank_9",    # (no header)
+    "pop_2020",    # 2020 Population
+    "_blank_11",   # (no header)
+    "status",      # Status
+]
+drop = ["_blank_9", "_blank_11"]
+# The NCR districts are in the datafile with no code.
+district_codes = [
+  { name = "NCR, City of Manila, First District (Not a Province)", code = 1303900000 },
+  { name = "NCR, Second District (Not a Province)", code = 1307400000 },
+  { name = "NCR, Third District (Not a Province)", code = 1307500000 },
+  { name = "NCR, Fourth District (Not a Province)", code = 1307600000 },
+]

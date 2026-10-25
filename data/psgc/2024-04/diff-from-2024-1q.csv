@@ -1,0 +1,74 @@
+kind,status,type,section,code,old_code,name_old,name_new,level_old,level_new,detail
+claim,unchecked,,April 2024,1999900000,1999900000,Interim Province Code for 63 barangays of BARMM based on PSA Board Resolution No. 13 Series of 2021,"Special Geographic Area, Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)",,,no rule for ''
+claim,consistent,Newly created municipality,April 2024,1999901000,1999901000,"Carmen Cluster, BARMM","Municipality of Kapalawan, BARMM",SGU,Mun,reuses the code of Carmen Cluster (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999901001,1999901001,"Carmen Cluster, BARMM","Barangay Kib-Ayao, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901002,1999901002,"Carmen Cluster, BARMM","Barangay Kitulaan, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901003,1999901003,"Carmen Cluster, BARMM","Barangay Langogan, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901004,1999901004,"Carmen Cluster, BARMM","Barangay Manarapan, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901005,1999901005,"Carmen Cluster, BARMM","Barangay Nasapian, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901006,1999901006,"Carmen Cluster, BARMM","Barangay Pebpoloan, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999901007,1999901007,"Carmen Cluster, BARMM","Barangay Tupig, Municipality of Kapalawan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999902000,1999902000,"Kabacan Cluster, BARMM","Municipality of Old Kaabakan, BARMM",SGU,Mun,reuses the code of Kabacan Cluster (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999902001,1999902001,"Kabacan Cluster, BARMM","Barangay Buluan, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902002,1999902002,"Kabacan Cluster, BARMM","Barangay Nanga-an, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902003,1999902003,"Kabacan Cluster, BARMM","Barangay Pedtad, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902004,1999902004,"Kabacan Cluster, BARMM","Barangay Sanggadong, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902005,1999902005,"Kabacan Cluster, BARMM","Barangay Simbuhay, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902006,1999902006,"Kabacan Cluster, BARMM","Barangay Simone, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999902007,1999902007,"Kabacan Cluster, BARMM","Barangay Tamped, Municipality of Old Kaabakan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999903000,1999903000,"Midsayap Cluster I, BARMM","Municipality of Kadayangan, BARMM",SGU,Mun,reuses the code of Midsayap Cluster I (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999903001,1999903001,"Midsayap Cluster I, BARMM","Barangay Central Labas, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903002,1999903002,"Midsayap Cluster I, BARMM","Barangay Kapinpilan, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903003,1999903003,"Midsayap Cluster I, BARMM","Barangay Malingao, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903004,1999903004,"Midsayap Cluster I, BARMM","Barangay Mudseng, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903005,1999903005,"Midsayap Cluster I, BARMM","Barangay Sambulawan, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903006,1999903006,"Midsayap Cluster I, BARMM","Barangay Tugal, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999903007,1999903007,"Midsayap Cluster I, BARMM","Barangay Tumbras, Municipality of Kadayangan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999904000,1999904000,"Midsayap Cluster II, BARMM","Municipality of Nabalawag, BARMM",SGU,Mun,reuses the code of Midsayap Cluster II (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999904001,1999904001,"Midsayap Cluster II, BARMM","Barangay Damatulan, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904002,1999904002,"Midsayap Cluster II, BARMM","Barangay Kadigasan, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904003,1999904003,"Midsayap Cluster II, BARMM","Barangay Kadingilan, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904004,1999904004,"Midsayap Cluster II, BARMM","Barangay Kudarangan, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904005,1999904005,"Midsayap Cluster II, BARMM","Barangay Nabalawag, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904006,1999904006,"Midsayap Cluster II, BARMM","Barangay Olandang, Municipality of Nabalawag, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999904007,1999908003,"Pikit Cluster III, , BARMM","Barangay Dunguan, Municipality of Nabalawag, BARMM",Bgy,Bgy,
+claim,consistent,Newly created municipality,April 2024,1999905000,1999905000,"Pigcawayan Cluster, BARMM","Municipality of Pahamuddin, BARMM",SGU,Mun,reuses the code of Pigcawayan Cluster (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999905001,1999905001,"Pigcawayan Cluster, BARMM","Barangay Balacayon, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905002,1999905002,"Pigcawayan Cluster, BARMM","Barangay Buricain, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905003,1999905003,"Pigcawayan Cluster, BARMM","Barangay Datu Binasing, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905004,1999905004,"Pigcawayan Cluster, BARMM","Barangay Datu Mantil, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905005,1999905005,"Pigcawayan Cluster, BARMM","Barangay Kadingilan, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905006,1999905006,"Pigcawayan Cluster, BARMM","Barangay Libungan Torreta, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905007,1999905007,"Pigcawayan Cluster, BARMM","Barangay Lower Baguer, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905008,1999905008,"Pigcawayan Cluster, BARMM","Barangay Lower Pangangkalan, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905009,1999905009,"Pigcawayan Cluster, BARMM","Barangay Matilac, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905010,1999905010,"Pigcawayan Cluster, BARMM","Barangay Patot, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905011,1999905011,"Pigcawayan Cluster, BARMM","Barangay Simsiman, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999905012,1999905012,"Pigcawayan Cluster, BARMM","Barangay Upper Pangangkalan, Municipality of Pahamuddin, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999906000,1999906000,"Pikit Cluster I, BARMM","Municipality of Malidegao, BARMM",SGU,Mun,reuses the code of Pikit Cluster I (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999906001,1999906001,"Pikit Cluster I, BARMM","Barangay Balungis, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906002,1999906002,"Pikit Cluster I, BARMM","Barangay Batulawan, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906003,1999906003,"Pikit Cluster I, BARMM","Barangay Fort Pikit, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906004,1999906004,"Pikit Cluster I, BARMM","Barangay Gokoton, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906005,1999906005,"Pikit Cluster I, BARMM","Barangay Nabundas, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906006,1999906006,"Pikit Cluster I, BARMM","Barangay Nalapaan, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999906007,1999906007,"Pikit Cluster I, BARMM","Barangay Nunguan, Municipality of Malidegao, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999907000,1999907000,"Pikit Cluster II, BARMM","Municipality of Ligawasan, BARMM",SGU,Mun,reuses the code of Pikit Cluster II (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999907001,1999907001,"Pikit Cluster II, BARMM","Barangay Bagoaingud, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907002,1999907002,"Pikit Cluster II, BARMM","Barangay Barungis, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907003,1999907003,"Pikit Cluster II, BARMM","Barangay Buliok, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907004,1999907004,"Pikit Cluster II, BARMM","Barangay Bulol, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907005,1999907005,"Pikit Cluster II, BARMM","Barangay Gligli, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907006,1999907006,"Pikit Cluster II, BARMM","Barangay Kabasalan, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999907008,1999907008,"Pikit Cluster II, BARMM","Barangay Rajah Muda, Municipality of Ligawasan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Newly created municipality,April 2024,1999908000,1999908000,"Pikit Cluster III, BARMM","Municipality of Tugunan, BARMM",SGU,Mun,reuses the code of Pikit Cluster III (SGU) in 2024-1q
+claim,consistent,Transferred barangay,April 2024,1999908001,1999908001,"Pikit Cluster III, BARMM","Barangay Balong, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908002,1999908002,"Pikit Cluster III, BARMM","Barangay Bualan, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908004,1999908004,"Pikit Cluster III, BARMM","Barangay Lagunde, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908005,1999908005,"Pikit Cluster III, BARMM","Barangay Macasendeg, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908006,1999908006,"Pikit Cluster III, BARMM","Barangay Manaulanan, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908007,1999908007,"Pikit Cluster III, BARMM","Barangay Pamalian, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908008,1999908008,"Pikit Cluster III, BARMM","Barangay Tapodoc, Municipality of Tugunan, BARMM",Bgy,Bgy,same code; the new parent isn't checked
+claim,consistent,Transferred barangay,April 2024,1999908009,1999907007,"Pikit Cluster II, BARMM","Barangay Macabual, Municipality of Tugunan, BARMM",Bgy,Bgy,
+claim,consistent,Transferred barangay,April 2024,1999908010,1999906008,"Pikit Cluster I, BARMM","Barangay Panicupan, Municipality of Tugunan, BARMM",Bgy,Bgy,
+changed,unexplained,,,1999900000,,Interim Province Code for 63 barangays of BARMM based on PSA Board Resolution No. 13 Series of 2021,Special Geographic Area,,,renamed

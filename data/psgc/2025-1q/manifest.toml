@@ -1,0 +1,45 @@
+# PSA's 2025-1q PSGC publication: its raw files in data/psgc/raw/2025-1q/ and their extract here.
+
+id = "2025-1q"
+as_of = "2025-03-31"
+announcement = "https://psa.gov.ph/classification/psgc/node/1684076101"
+
+[[files]]
+role = "datafile"
+name = "PSGC-1Q-2025-Publication-Datafile.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-1Q-2025-Publication-Datafile.xlsx"
+sha256 = "4ec8e492a6da1f6a155d71c90dbb693cd33c82438016ca6cb5842232a5f648d7"
+sheets = { psgc = "PSGC", national_summary = "National Summary", prov_summary = "Prov Sum" }
+
+[[files]]
+role = "summary_of_changes"
+name = "PSGC-1Q-2025-Summary-of-Changes.xlsx"
+url = "https://psa.gov.ph/system/files/scd/PSGC-1Q-2025-Summary-of-Changes.xlsx"
+sha256 = "372f5662e9444524ca3e8e70aeb119d3b4e17f8f026f3b59c73b15619d931a91"
+sheets = { log = "2001-present" }
+# The log's sections that are this publication's.
+sections = ["January to March 2025"]
+
+[layout]
+# The PSGC sheet's columns, by position (PSA's header beside each).
+columns = [
+    "psgc_code",   # 10-digit PSGC
+    "name",        # Name
+    "corr_code",   # Correspondence Code
+    "geo_level",   # Geographic Level
+    "old_names",   # Old names
+    "city_class",  # City Class
+    "inc_class",   # Income Classification
+    "urb_rur",     # Urban / Rural (based on 2020 CPH)
+    "pop_2020",    # 2020 Population
+    "_blank_9",    # (no header)
+    "status",      # Status
+]
+drop = ["_blank_9"]
+# The datafile has no NCR district rows.
+add_rows = [
+  { code = 1303900000, name = "NCR, City of Manila, First District (Not a Province)", geo_level = "Dist" },
+  { code = 1307400000, name = "NCR, Second District (Not a Province)", geo_level = "Dist" },
+  { code = 1307500000, name = "NCR, Third District (Not a Province)", geo_level = "Dist" },
+  { code = 1307600000, name = "NCR, Fourth District (Not a Province)", geo_level = "Dist" },
+]
