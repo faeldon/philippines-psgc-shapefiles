@@ -10,7 +10,11 @@
       "Bash(uv run --quiet --script */scripts/sdlc.py context *)",
       "Bash(uv run --quiet --script */scripts/sdlc.py readiness *)",
       "Bash(uv run --quiet --script */scripts/sdlc.py unreleased *)",
-      "Bash(uv run --quiet --script */scripts/sdlc.py drift *)"
+      "Bash(uv run --quiet --script */scripts/sdlc.py drift *)",
+      "Bash(uv run --quiet --script */scripts/sdlc.py next-entry *)",
+      "Bash(uv run --quiet --script */scripts/sdlc.py bugs *)",
+      "Bash(uv run --quiet --script */scripts/sdlc.py intake *)",
+      "Bash(uv run --quiet --script */scripts/sdlc.py closes *)"
     ]
   },
   "attribution": {

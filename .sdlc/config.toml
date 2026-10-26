@@ -9,6 +9,11 @@ check = "uv run --no-sync pytest && uv run --no-sync black --check src scripts &
 # (scripts/sources.py fetch); about 4 minutes.
 build = 'out=$(mktemp -d) && uv run --no-sync python scripts/regenerate.py "$out" && uv run --no-sync python scripts/check_dist.py check "$out/dist" && uv run --no-sync python scripts/check_dist.py diff dist "$out/dist"'
 build_when = '^(src/|scripts/|data/|pyproject\.toml|uv\.lock)'
+# Drift across the whole repo, for /sdlc:health: the integration tests the gate leaves out. CONTRACT 2
+# over the committed dist/ CSVs (both distributions), every data/psgc/ publication, 2026-3q's recodes
+# against PSA's transfers, and nothing tracked needing git-lfs. Offline; needs no raw sources (the
+# edit files' rerun is skipped without them).
+scan = "uv run --no-sync pytest -m integration"
 # requires-python (>=3.12,<3.13) makes uv pick 3.12, as CI runs. --locked fails if uv.lock is out of
 # step with the pins. sources.py fetch hard-links the raw sources from the main checkout (downloading
 # from the sources release only what it lacks), so a worktree can build.

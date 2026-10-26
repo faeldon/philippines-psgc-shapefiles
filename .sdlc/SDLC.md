@@ -37,18 +37,50 @@ which holds the invariants a design stays inside, the review passes (`.sdlc/REVI
 | **5 Ship** | A reviewed commit | the commit |
 | **6 Maintain** | `/sdlc:health` runs the scans and tiers what they find | a new `intent.md` |
 
-`work/ideas.md` sits *before* Stage 1: a pool of seeds that explicitly disclaims being a backlog.
+`work/inbox.md` sits *before* Stage 1: where change requests arrive, explicitly not a backlog.
 Promoting a seed into committed work is what `/sdlc:intent` does. When `/sdlc:ship` closes a seed,
 `sdlc.py ship` deletes the entry its `idea:` names and stages it with the rest of the change, so
-`ideas.md` holds only what is open; history keeps the rest.
+`inbox.md` holds only what is open; history keeps the rest.
 
 ```
-work/ideas.md ──/sdlc:intent──▶ intent.md ──/sdlc:spec──▶ spec.md ──plan mode──▶ plan.md
+work/inbox.md ──/sdlc:intent──▶ intent.md ──/sdlc:spec──▶ spec.md ──plan mode──▶ plan.md
    ▲                                                                                │
    │                                                                           implement
    └──────────────  /sdlc:health  ◀────── maintain ──  /sdlc:ship ────────────┘
                  (Stage 6 tiers findings; response tier 3 writes a new intent)
 ```
+
+### Seeds, and the changes they become
+
+Every entry in `work/inbox.md` is a **seed**: something a change may grow from. Its tag is its
+kind, which says where it came from:
+
+| Seed | What it is | Written by |
+|---|---|---|
+| `[idea]` | a change someone proposes: something new, or something better | a person, `/sdlc:retro`, `/sdlc:ship` carrying a note |
+| `[bug]` | something already shipped that is broken | `/sdlc:bug` |
+| `[nit]` | a finding `/sdlc:ship` approved unfixed | `/sdlc:ship` |
+
+`[building]` marks an idea a change is building. A `[seed]` tag, from before ideas had their own,
+reads as `[idea]`.
+
+A change has a **type**, which says what it does: the word a changelog or a commit prefix would
+use. The kind of seed suggests the type, never fixes it:
+
+| Type | What the change does | Usually grows from |
+|---|---|---|
+| `feature` | adds something a user can do or see | an idea |
+| `fix` | makes something broken work as it should | a bug |
+| `refactor` | changes the code's shape, not what it does | a nit, an idea |
+| `perf` | makes something faster or cheaper, nothing else | an idea, a nit |
+| `docs` | changes only documentation | an idea, a nit |
+| `test` | adds or fixes tests alone | a nit |
+| `chore` | tooling, dependencies, process: nothing a user sees | an idea, a nit |
+
+The type is apart from the tier (how much ceremony a change owes) and from `impact:` (what a
+release does to its users): a `fix` can be a `minor`, a `feature` a Tier 1. These are the words
+the plugin uses; a repo whose commits name a type, as a prefix (`fix: …`) or otherwise, uses
+them, and one whose commits don't leaves them out.
 
 ## Three loops
 
@@ -75,7 +107,7 @@ takes in what the loop inside it produced:
 |---|---|---|---|---|
 | **Change** | once per change, several in parallel | an idea, a finding, a seed | a reviewed commit on `main` (ship), its folder archived (close) | one WAIT each at intent, spec, ship, close |
 | **Release** | once per batch of closed changes | the `impact:` of each change closed since the last tag | a version, a tag and its notes (release); then the push and the host's publish (publish) | one WAIT at release, one at publish: reversible and irreversible kept apart |
-| **Retro** | when `status` says Retro due (2 releases, or a major one), or when the direction is unclear | the history since the last retrospective, its releases, the process and policy docs, the product doc (if any) with its evidence and what each change served, the skills, and what each change cost | the direction doc (goals, milestones, the next major release), the product doc's outcome lines, and seeds in `work/ideas.md` | one WAIT |
+| **Retro** | when `status` says Retro due (2 releases, or a major one), or when the direction is unclear | the history since the last retrospective, its releases, the process and policy docs, the product doc (if any) with its evidence and what each change served, the skills, and what each change cost | the direction doc (goals, milestones, the next major release), the product doc's outcome lines, and seeds in `work/inbox.md` | one WAIT |
 
 **No loop reaches past the one inside it.** A release only takes changes that have closed. A
 retrospective never edits code or skills; what it finds goes back in as a seed and comes out the
@@ -138,7 +170,7 @@ impact:            # settled by /sdlc:ship: major | minor | patch | none
 stage: plan        # plan | spike | design | build | test | ship | shipped | dropped
 created: 2026-10-17
 updated: 2026-10-17
-idea:              # optional backlink to a work/ideas.md heading
+idea:              # optional backlink: the id of a work/inbox.md entry (a title, before ids)
 depends_on:        # optional: the open changes this one waits on, by id, e.g. [003]
 dropped_at:        # stamped by /sdlc:drop: the stage a dropped change reached
 ```
@@ -166,7 +198,7 @@ written, a migration run, something published, and the command that reverses eac
 **`notes.md`: what happened.** Optional and free-form, with one rule: **anything left undone is an
 unticked `- [ ]` line**, not an empty table cell or a "still to check" heading, which the tools
 can't see. `/sdlc:status` counts them, and `/sdlc:ship` gives each a disposition: carried to a new
-`work/ideas.md` seed, or dropped with a reason. `sdlc.py ship` refuses while one is unticked.
+`work/inbox.md` seed, or dropped with a reason. `sdlc.py ship` refuses while one is unticked.
 
 ## Where a change is worked: one worktree per change
 
@@ -202,7 +234,7 @@ in the main checkout (such as `data/2026/`) is not in the worktree.
 
 Interviews you, assigns a tier, drafts `intent.md`, gates, then opens the change (its GitHub issue
 first, when that's how changes are numbered) and **stops**. If the change came from a
-`work/ideas.md` seed, it sets the `idea:` backlink and marks the seed `[building]`.
+`work/inbox.md` seed, it sets the `idea:` backlink and marks the idea `[building]`.
 
 Push back on a tier that ignores the carve-outs above: a "one-line" override or a regeneration
 of `dist/` is Tier 2. And ask which levels the change regenerates: the CLI rebuilds municities
@@ -296,10 +328,11 @@ are made from. CI (`build.yml`) validates on push and PR; PR titles follow Conve
 
 #### Nits: small technical debt
 
-A Nit approved unfixed isn't lost in the findings count: ship records it in `work/nits.md`, and a
-later ship retires it once a diff fixes it or makes it moot. Each is weighed the same way:
+A Nit approved unfixed isn't lost in the findings count: ship records it in `work/inbox.md` as a
+`[nit]` entry, with `Theme:`, `Paths:`, `Cost:`, `Value:` and `Raised by: NNN-slug (pass)` lines,
+and a later ship retires it once a diff fixes it or makes it moot. Each is weighed the same way:
 - **cost:** `S`, one sitting and a few lines · `M`, a test or several files · `L`, a design call.
-  An `L` is a `work/ideas.md` seed, not a nit.
+  An `L` is a `work/inbox.md` idea, not a nit.
 - **value:** `med`, a user or host could hit it on an edge case · `low`, only a reader of the code
   notices. One users would hit in normal use, or that loses work, is never a nit: it is Important.
 - **theme:** `docs`, `refactor`, `robustness`, `tests` or `style`, or one of this repo's own, so
@@ -310,6 +343,23 @@ and `/sdlc:spec` (Tier 2) offer the open ones on the paths a change touches, so 
 down as they pass. A theme with 5 or more open, or any nit older than 60 days, is what
 `/sdlc:retro` proposes one change to pay down. Release and publish never look at them: the release
 cycle is for shipping.
+
+#### Bugs: what's already broken
+
+A bug is something that shipped and is broken, with a way to see it: a `[bug]` entry in
+`work/inbox.md`, filed by `/sdlc:bug` with `Severity:` and `Paths:` lines, and an
+`Introduced by: NNN-slug` line once someone confirms which change let it through. A request for
+something nobody has built is an idea, and a finding in a diff under review is a nit or Important.
+Each is weighed the same way:
+- **severity:** `high`, it loses work, gives a wrong number or stops a stage · `med`, its output
+  is wrong and there is a way round it · `low`, a message or a rough edge.
+
+`/sdlc:status` puts open bugs first, most severe first. `/sdlc:intent <id>` opens the change that
+fixes one, its intent naming it on a `fixes:` line; `/sdlc:ship` removes the entry with the fix,
+and `/sdlc:close` records it on the `Close` commit as an `Sdlc-Fixes:` trailer, so history says
+which change fixed what. One that needs no fix is retired by `/sdlc:bug`, with its reason.
+`/sdlc:retro` counts them: reported, fixed and retired in its window, days from report to fix,
+and escapes per introducing change against its tier.
 
 ### Closing and the archive → `/sdlc:close`
 
@@ -356,7 +406,8 @@ person authorizes it**, in two steps with an approval each:
    ship settled. It proposes the version they add up to, and after one approval sets it in each
    file `release.version_files` names, adds the notes to `release.changelog` if one is set, runs
    `release.after_bump` if one is set (a lock file regenerated from the new version, say),
-   commits `Release X.Y.Z` with what all of that changed, and tags it (`release.tag`,
+   then `release.prepare` if one is set (a build of what publish will upload, into untracked or
+   ignored paths only), commits `Release X.Y.Z` with what all of that changed, and tags it (`release.tag`,
    `v{version}` by default). All local: until it is published,
    `git tag -d <tag> && git reset --keep HEAD~1` takes it back.
 2. **`/sdlc:publish`** pushes `main` and the tag to `release.remote` (never forced: a remote that
@@ -450,7 +501,8 @@ retrospective, and says which it can't.
 - **Age of open intents.** `/sdlc:status` prints it. An intent at `stage: plan` for a month is a
   decision nobody has made.
 - **Rework.** Changes that ship and need a follow-up fix within a week. A cluster means Stage 2 is
-  being skipped.
+  being skipped. A file more than a third of the window's changes touch is left out, once there are
+  six: sharing it says nothing, and the retrospective lists it apart as one most changes touch.
 - **Findings caught at ship vs. found later by someone else.** The ratio is what the review buys.
 - **Tier drift.** If everything is becoming Tier 2, the tier rule has stopped controlling overhead
   and needs re-drawing.

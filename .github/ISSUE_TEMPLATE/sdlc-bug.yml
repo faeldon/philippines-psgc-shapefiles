@@ -1,0 +1,35 @@
+# A GitHub issue form for something that shipped and is broken. /sdlc:triage reads what it asks
+# for as a [bug] entry's description, repro, Paths: and Severity:. Setup fills the severities from
+# the repo's process doc; after that the file is the repo's.
+name: Bug report
+description: Something that already works for you is broken.
+labels: []
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you did, what happened, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to see it
+      description: The command, the input or the steps that show it. Say so if you can't make it happen again.
+    validations:
+      required: true
+  - type: input
+    id: paths
+    attributes:
+      label: Where
+      description: The files, commands or screens involved, as far as you know.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How bad
+      description: How much it gets in your way.
+      options:
+        - high
+        - med
+        - low

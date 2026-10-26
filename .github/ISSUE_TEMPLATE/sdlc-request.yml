@@ -1,0 +1,18 @@
+# A GitHub issue form for something nobody has built yet. /sdlc:triage reads what it asks for as an
+# [idea] entry. After setup writes it, the file is the repo's.
+name: Request
+description: Something you'd like it to do that it doesn't yet.
+labels: []
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's hard today
+      description: What you're trying to get done, and what gets in the way, in your own terms.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should change
+      description: What would be true once it's done, as something you could check.
