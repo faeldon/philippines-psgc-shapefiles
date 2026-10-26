@@ -37,13 +37,13 @@ which holds the invariants a design stays inside, the review passes (`.sdlc/REVI
 | **5 Ship** | A reviewed commit | the commit |
 | **6 Maintain** | `/sdlc:health` runs the scans and tiers what they find | a new `intent.md` |
 
-`work/inbox.md` sits *before* Stage 1: where change requests arrive, explicitly not a backlog.
+`.sdlc/work/inbox.md` sits *before* Stage 1: where change requests arrive, explicitly not a backlog.
 Promoting a seed into committed work is what `/sdlc:intent` does. When `/sdlc:ship` closes a seed,
 `sdlc.py ship` deletes the entry its `idea:` names and stages it with the rest of the change, so
 `inbox.md` holds only what is open; history keeps the rest.
 
 ```
-work/inbox.md ──/sdlc:intent──▶ intent.md ──/sdlc:spec──▶ spec.md ──plan mode──▶ plan.md
+.sdlc/work/inbox.md ──/sdlc:intent──▶ intent.md ──/sdlc:spec──▶ spec.md ──plan mode──▶ plan.md
    ▲                                                                                │
    │                                                                           implement
    └──────────────  /sdlc:health  ◀────── maintain ──  /sdlc:ship ────────────┘
@@ -52,7 +52,7 @@ work/inbox.md ──/sdlc:intent──▶ intent.md ──/sdlc:spec──▶ sp
 
 ### Seeds, and the changes they become
 
-Every entry in `work/inbox.md` is a **seed**: something a change may grow from. Its tag is its
+Every entry in `.sdlc/work/inbox.md` is a **seed**: something a change may grow from. Its tag is its
 kind, which says where it came from:
 
 | Seed | What it is | Written by |
@@ -107,7 +107,7 @@ takes in what the loop inside it produced:
 |---|---|---|---|---|
 | **Change** | once per change, several in parallel | an idea, a finding, a seed | a reviewed commit on `main` (ship), its folder archived (close) | one WAIT each at intent, spec, ship, close |
 | **Release** | once per batch of closed changes | the `impact:` of each change closed since the last tag | a version, a tag and its notes (release); then the push and the host's publish (publish) | one WAIT at release, one at publish: reversible and irreversible kept apart |
-| **Retro** | when `status` says Retro due (2 releases, or a major one), or when the direction is unclear | the history since the last retrospective, its releases, the process and policy docs, the product doc (if any) with its evidence and what each change served, the skills, and what each change cost | the direction doc (goals, milestones, the next major release), the product doc's outcome lines, and seeds in `work/inbox.md` | one WAIT |
+| **Retro** | when `status` says Retro due (2 releases, or a major one), or when the direction is unclear | the history since the last retrospective, its releases, the process and policy docs, the product doc (if any) with its evidence and what each change served, the skills, and what each change cost | the direction doc (goals, milestones, the next major release), the product doc's outcome lines, and seeds in `.sdlc/work/inbox.md` | one WAIT |
 
 **No loop reaches past the one inside it.** A release only takes changes that have closed. A
 retrospective never edits code or skills; what it finds goes back in as a seed and comes out the
@@ -155,7 +155,7 @@ When it's borderline, **pick the lower tier**. A Tier 1 that grows can be promot
 
 ## The artifacts
 
-One folder per change, `work/NNN-slug/`, committed on the change's own branch in its own
+One folder per change, `.sdlc/work/NNN-slug/`, committed on the change's own branch in its own
 worktree. The artifacts are reviewed in the same diff as the code they describe, and everything
 about a change reads top to bottom in one place. When the change closes, its folder leaves `main`
 in a commit of its own; history keeps it (*Closing and the archive*, below).
@@ -170,7 +170,7 @@ impact:            # settled by /sdlc:ship: major | minor | patch | none
 stage: plan        # plan | spike | design | build | test | ship | shipped | dropped
 created: 2026-10-17
 updated: 2026-10-17
-idea:              # optional backlink: the id of a work/inbox.md entry (a title, before ids)
+idea:              # optional backlink: the id of a .sdlc/work/inbox.md entry (a title, before ids)
 depends_on:        # optional: the open changes this one waits on, by id, e.g. [003]
 dropped_at:        # stamped by /sdlc:drop: the stage a dropped change reached
 ```
@@ -198,7 +198,7 @@ written, a migration run, something published, and the command that reverses eac
 **`notes.md`: what happened.** Optional and free-form, with one rule: **anything left undone is an
 unticked `- [ ]` line**, not an empty table cell or a "still to check" heading, which the tools
 can't see. `/sdlc:status` counts them, and `/sdlc:ship` gives each a disposition: carried to a new
-`work/inbox.md` seed, or dropped with a reason. `sdlc.py ship` refuses while one is unticked.
+`.sdlc/work/inbox.md` seed, or dropped with a reason. `sdlc.py ship` refuses while one is unticked.
 
 ## Where a change is worked: one worktree per change
 
@@ -234,7 +234,7 @@ in the main checkout (such as `data/2026/`) is not in the worktree.
 
 Interviews you, assigns a tier, drafts `intent.md`, gates, then opens the change (its GitHub issue
 first, when that's how changes are numbered) and **stops**. If the change came from a
-`work/inbox.md` seed, it sets the `idea:` backlink and marks the idea `[building]`.
+`.sdlc/work/inbox.md` seed, it sets the `idea:` backlink and marks the idea `[building]`.
 
 Push back on a tier that ignores the carve-outs above: a "one-line" override or a regeneration
 of `dist/` is Tier 2. And ask which levels the change regenerates: the CLI rebuilds municities
@@ -328,11 +328,11 @@ are made from. CI (`build.yml`) validates on push and PR; PR titles follow Conve
 
 #### Nits: small technical debt
 
-A Nit approved unfixed isn't lost in the findings count: ship records it in `work/inbox.md` as a
+A Nit approved unfixed isn't lost in the findings count: ship records it in `.sdlc/work/inbox.md` as a
 `[nit]` entry, with `Theme:`, `Paths:`, `Cost:`, `Value:` and `Raised by: NNN-slug (pass)` lines,
 and a later ship retires it once a diff fixes it or makes it moot. Each is weighed the same way:
 - **cost:** `S`, one sitting and a few lines · `M`, a test or several files · `L`, a design call.
-  An `L` is a `work/inbox.md` idea, not a nit.
+  An `L` is a `.sdlc/work/inbox.md` idea, not a nit.
 - **value:** `med`, a user or host could hit it on an edge case · `low`, only a reader of the code
   notices. One users would hit in normal use, or that loses work, is never a nit: it is Important.
 - **theme:** `docs`, `refactor`, `robustness`, `tests` or `style`, or one of this repo's own, so
@@ -347,7 +347,7 @@ cycle is for shipping.
 #### Bugs: what's already broken
 
 A bug is something that shipped and is broken, with a way to see it: a `[bug]` entry in
-`work/inbox.md`, filed by `/sdlc:bug` with `Severity:` and `Paths:` lines, and an
+`.sdlc/work/inbox.md`, filed by `/sdlc:bug` with `Severity:` and `Paths:` lines, and an
 `Introduced by: NNN-slug` line once someone confirms which change let it through. A request for
 something nobody has built is an idea, and a finding in a diff under review is a nit or Important.
 Each is weighed the same way:
@@ -441,11 +441,13 @@ decision, made on purpose with `/sdlc:release 1.0.0`.
 
 Deterministic detection before a model is asked anything: `commands.scan` runs the repo's scans,
 and `sdlc.py check` finds intent frontmatter that won't parse, artifacts a change's tier and stage
-owe but lack or never filled in, ideas marked `[building]` with nothing behind them, a `work/` git ignores, and a change counter that doesn't hold a number. `/sdlc:status` shows each open change's age.
+owe but lack or never filled in, ideas marked `[building]` with nothing behind them, a `.sdlc/work/` git ignores, and a change counter that doesn't hold a number. `/sdlc:status` shows each open change's age.
 
-No `commands.scan` is set yet. The drift worth scanning for here: `dist/` levels that break
-CONTRACT 2, and `CHANGELOG.md` rows still ❌ Pending after PSA has published. (Source paths whose
-casing differs from the folders on disk now fail when a release file loads.)
+`commands.scan` is the integration suite the gate leaves out (`pytest -m integration`): CONTRACT 2
+over the committed `dist/` CSVs, every `data/psgc/` publication, 2026-3q's recodes against PSA's
+transfers, and nothing tracked needing git-lfs. `.sdlc/HEALTH.md` routes what it finds. Not scanned:
+`CHANGELOG.md` rows still ❌ Pending after PSA has published. (Source paths whose casing differs
+from the folders on disk fail when a release file loads.)
 
 Findings go somewhere by **response tier**, a different scale from the change tiers above:
 
