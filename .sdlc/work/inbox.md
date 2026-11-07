@@ -32,6 +32,8 @@ null geometry and `len_crs`/`area_crs` 0; their barangays hold the area, so a GI
 of its barangays (a rebuild, like 099's `[municities] rebuild`, but within adm4), so a GIS draws them. That
 changes a published output (Tier 2). Found while building 093; see work/093-dist-zip-layers/notes.md in 093's commit (in altcoder/philippines-psgc-shapefiles).
 
+Issue: #1
+
 ## [2026-10-24-4] [idea] A 2022 Changelogs row links the wrong PSA page
 
 The `CHANGELOG.md` row "First Quarter 2022 PSGC Updates: Correction of the Names of Five Barangays"
