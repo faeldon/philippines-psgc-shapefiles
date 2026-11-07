@@ -81,6 +81,23 @@ sees at once. CONTRACT 3 in `CLAUDE.md` applies before `dist/` is regenerated at
 release is published or added to; `CHANGELOG.md`'s PSGC updates table is what each release's notes
 are made from. CI (`build.yml`) validates on push and PR; PR titles follow Conventional Commits.
 
+### The release loop → `/sdlc:release`, then `/sdlc:publish`
+
+#### Which part to bump
+
+This repo's versions follow the data users download, so here `impact:` means this, in place of the
+guide's table:
+
+| `impact:` | The change |
+|---|---|
+| `major` | A new base boundary file that `dist/` is built on (a new OCHA/NAMRIA COD-AB edition, say), or a big overhaul of the project. |
+| `minor` | A PSGC update: `dist/` rebuilt to match a new PSA publication, quarterly or off-cycle. |
+| `patch` | Anything else users receive: a data correction, a geometry fix, shapes for rows that had none, a new check or a doc they read. |
+| `none` | Nothing users receive changes: tests, tooling, the process. |
+
+The tier doesn't decide it: a Tier 2 change that isn't a PSGC update or a new base file is a
+`patch`, as 002 (Manila's sub-municipality shapes) was.
+
 ### Stage 6 — Maintain → `/sdlc:health`
 
 #### What the scans watch
