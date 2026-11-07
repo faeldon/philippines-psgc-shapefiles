@@ -17,7 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 requires-python = ">=3.12,<3.13"
-version = "1.0.0"
+version = "1.0.1"
 
 # Pinned exactly, transitive geo deps included: CI installs with plain pip/flit and ignores uv.lock.
 dependencies = [
