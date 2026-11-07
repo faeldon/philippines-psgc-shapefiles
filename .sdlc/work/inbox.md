@@ -23,17 +23,6 @@ row per PSGC code" doesn't hold for it. 092's `check_dist.py` accepts it as a na
 Dissolving to one multipolygon row changes a published output (Tier 2, CONTRACT 3). Related, from
 the same change: `area_km2` is a float at every level (`area_crs // 1e6`), which CLAUDE.md now says.
 
-## [2026-10-24-3] [idea] adm4's 14 Manila sub-municipality rows have no shape
-
-`dist/PH_Adm4_BgySubMuns.*` has 14 `SubMun` rows (`1380601000`–`1380614000`, Tondo I/II to Santa Ana) with a
-null geometry and `len_crs`/`area_crs` 0; their barangays hold the area, so a GIS shows 14 empty features.
-099 documented them: `geom_src = none` and the README's `geom_src` table say why, and
-`releases/2026-3q.toml` declares them `shapeless`. What's left is the option of giving each one the dissolve
-of its barangays (a rebuild, like 099's `[municities] rebuild`, but within adm4), so a GIS draws them. That
-changes a published output (Tier 2). Found while building 093; see work/093-dist-zip-layers/notes.md in 093's commit (in altcoder/philippines-psgc-shapefiles).
-
-Issue: #1
-
 ## [2026-10-24-4] [idea] A 2022 Changelogs row links the wrong PSA page
 
 The `CHANGELOG.md` row "First Quarter 2022 PSGC Updates: Correction of the Names of Five Barangays"

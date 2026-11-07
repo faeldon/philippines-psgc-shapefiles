@@ -316,24 +316,28 @@ non_barangay_areas = [
 merges = [
   { into = 401007019, from = [401007019, 401007038], note = "2026-1q: San Rafael merged into Dacanlao, City of Calaca (GR 234228)" },
 ]
-# PSGC rows with no shape, which the match report lists rather than counts: Manila's sub-municipalities
-# (their barangays hold the area), and in dist/ (known) the new barangays no published boundary describes
-# (dist/complete/ approximates them: data/edit/20261025/approximations.toml).
+# Sub-municipalities with no source shape: each is the union of its barangays (the Bgy rows sharing its
+# first 7 digits), once matched, so the match report lists them rather than counts them.
+rebuild = [
+  1380601000,  # Tondo I/II
+  1380602000,  # Binondo
+  1380603000,  # Quiapo
+  1380604000,  # San Nicolas
+  1380605000,  # Santa Cruz
+  1380606000,  # Sampaloc
+  1380607000,  # San Miguel
+  1380608000,  # Ermita
+  1380609000,  # Intramuros
+  1380610000,  # Malate
+  1380611000,  # Paco
+  1380612000,  # Pandacan
+  1380613000,  # Port Area
+  1380614000,  # Santa Ana
+]
+# PSGC rows with no shape, which the match report lists rather than counts: in dist/ (known), the new
+# barangays no published boundary describes (dist/complete/ approximates them:
+# data/edit/20261025/approximations.toml).
 shapeless = [
-  { code = 1380601000, note = "Tondo I/II: a Manila sub-municipality" },
-  { code = 1380602000, note = "Binondo: a Manila sub-municipality" },
-  { code = 1380603000, note = "Quiapo: a Manila sub-municipality" },
-  { code = 1380604000, note = "San Nicolas: a Manila sub-municipality" },
-  { code = 1380605000, note = "Santa Cruz: a Manila sub-municipality" },
-  { code = 1380606000, note = "Sampaloc: a Manila sub-municipality" },
-  { code = 1380607000, note = "San Miguel: a Manila sub-municipality" },
-  { code = 1380608000, note = "Ermita: a Manila sub-municipality" },
-  { code = 1380609000, note = "Intramuros: a Manila sub-municipality" },
-  { code = 1380610000, note = "Malate: a Manila sub-municipality" },
-  { code = 1380611000, note = "Paco: a Manila sub-municipality" },
-  { code = 1380612000, note = "Pandacan: a Manila sub-municipality" },
-  { code = 1380613000, note = "Port Area: a Manila sub-municipality" },
-  { code = 1380614000, note = "Santa Ana: a Manila sub-municipality" },
   { code = 1903617146, note = "2024-1q: Angoyao, from Patani (Marawi City Ordinance 20-11, s. 2023, unpublished)" },
   { code = 1903617147, note = "2024-1q: Sultan Corobong, from Dulay (Marawi City Ordinance 18-11, s. 2023, unpublished)" },
   { code = 1903617148, note = "2024-1q: Sultan Panoroganan, from Kilala (Marawi City Ordinance 19-11, s. 2023, unpublished)" },

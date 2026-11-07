@@ -8,7 +8,7 @@
 from __future__ import annotations
 
 
-def report_nulls(gdf, column_name, report_table=False, explained=()):
+def report_nulls(gdf, column_name, report_table=False, explained=(), rebuilt=()):
     """
     Prints a report of null values in a GeoDataFrame column and provides an option to display the corresponding rows.
     Used for checking if outer join contains nulls.
@@ -19,12 +19,18 @@ def report_nulls(gdf, column_name, report_table=False, explained=()):
         report_table (bool, optional): Whether to display the corresponding rows with null values. Defaults to False.
         explained (collection of int, optional): PSGC codes the release declares have no shape (its shapeless
             rows). They're listed, not counted as unmatched.
+        rebuilt (collection of int, optional): PSGC codes given the union of their children's shapes after the
+            join (the release's adm4 rebuild). They're listed apart, not counted as unmatched.
     """
     unshaped = gdf[column_name].isnull() & gdf["psgc_code"].isin(explained)
     if unshaped.any():
         codes = sorted(gdf.loc[unshaped, "psgc_code"].astype(int))
         print(f"MATCH REPORT: {len(codes)} PSGC rows have no shape, as the release declares: {codes}")
-    gdf = gdf[~unshaped]
+    to_rebuild = gdf[column_name].isnull() & gdf["psgc_code"].isin(rebuilt)
+    if to_rebuild.any():
+        codes = sorted(gdf.loc[to_rebuild, "psgc_code"].astype(int))
+        print(f"MATCH REPORT: {len(codes)} PSGC rows are rebuilt from their barangays: {codes}")
+    gdf = gdf[~unshaped & ~to_rebuild]
     # Count rows where the specific column is null
     null_psgc_count = gdf["name"].isnull().sum()
     if null_psgc_count > 0:

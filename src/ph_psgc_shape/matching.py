@@ -53,7 +53,11 @@ def debug_log(release, psgc_df, bgysubmuns_gdf, unmatched_psgc_df=None, unmatche
 def report(joined, bgysubmuns_gdf, psgc_df, release, report_table=False):
     """Print the match report for a joined frame; return its unmatched PSGC rows and unmatched shapes."""
     report_nulls(
-        joined, column_name="adm4_en", report_table=report_table, explained=release.bgysubmuns.shapeless.keys()
+        joined,
+        column_name="adm4_en",
+        report_table=report_table,
+        explained=release.bgysubmuns.shapeless.keys(),
+        rebuilt=release.bgysubmuns.rebuild,
     )
     unmatched_psgc_df = joined[joined["adm4_en"].isnull()]
     unmatched_shape_df = joined[joined["name"].isnull()]

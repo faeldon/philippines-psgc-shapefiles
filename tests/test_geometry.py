@@ -173,6 +173,57 @@ def test_a_stale_shapeless_declaration_fails(code):
         levels.check_shapeless(joined_bgy(), {1903617146: "", code: ""})
 
 
+TONDO, BINONDO = 1380601000, 1380602000
+
+
+def manila():
+    """Joined adm4 rows: Tondo without a shape, two adjoining 10 m squares of its barangays, one of Binondo's."""
+    return frame(
+        [
+            (TONDO, None),
+            (1380601001, box(0, 0, 10, 10)),
+            (1380601002, box(10, 0, 20, 10)),
+            (1380602001, box(50, 0, 60, 10)),
+        ],
+        name=["Tondo I/II", "Barangay 1", "Barangay 2", "Barangay 287"],
+        geo_level=["SubMun", "Bgy", "Bgy", "Bgy"],
+        geom_src=["none", "source", "source", "source"],
+        adm3_psgc=1380600000,
+    )
+
+
+def test_a_sub_municipality_is_the_union_of_its_barangays():
+    tondo = levels.rebuild_submuns(manila(), (TONDO,)).set_index("psgc_code").loc[TONDO]
+    assert tondo.geometry.equals(box(0, 0, 20, 10))
+    assert (tondo["area_crs"], tondo["len_crs"], tondo["geom_src"]) == (200, 60, "dissolved")  # not 2 × 40
+
+
+def test_no_rebuild_leaves_the_frame_as_it_was():
+    gdf = manila()
+    assert levels.rebuild_submuns(gdf, ()) is gdf
+
+
+def test_a_sub_municipality_without_barangays_fails():
+    gdf = pd.concat([manila(), frame([(BINONDO + 1000, None)], name="Quiapo", geo_level="SubMun")], ignore_index=True)
+    with pytest.raises(GeometryEditError, match="no child"):
+        levels.rebuild_submuns(gdf, (BINONDO + 1000,))
+
+
+def test_a_rebuild_code_that_isnt_one_row_fails():
+    with pytest.raises(GeometryEditError, match="matches 0 rows"):
+        levels.rebuild_submuns(manila(), (1380699000,))
+
+
+def test_rebuilt_rows_are_reported_but_not_counted(capsys):
+    joined = pd.DataFrame(
+        {"psgc_code": [TONDO, 102801001], "name": ["Tondo I/II", "Adams"], "adm4_en": [None, "Adams"]}
+    )
+    report_nulls(joined, "adm4_en", rebuilt=(TONDO,))
+    out = capsys.readouterr().out
+    assert f"1 PSGC rows are rebuilt from their barangays: [{TONDO}]" in out
+    assert "All rows matched!" in out
+
+
 def test_declared_shapeless_rows_are_reported_but_not_counted(capsys):
     joined = pd.DataFrame(
         {"psgc_code": [1903617146, 102801001], "name": ["Angoyao", "Adams"], "adm4_en": [None, "Adams"]}

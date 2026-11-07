@@ -327,6 +327,22 @@ def approximate(gdf, splits):
     return add_geometry_measures(gdf, epsg_code=UTM_51N)
 
 
+def rebuild_submuns(gdf, codes):
+    """Give each sub-municipality in codes the union of its barangays' shapes, re-measured; return the frame.
+
+    Takes the joined adm4 frame after fix_adm4_parents, which puts Manila's barangays under the City of
+    Manila, so a barangay's sub-municipality comes from its own code (its first 7 digits), not adm3_psgc.
+    The rebuilt rows' geom_src becomes dissolved.
+    """
+    if not codes:
+        return gdf
+    children = gdf[gdf["geo_level"] == "Bgy"].copy()
+    children["submun_psgc"] = children["psgc_code"] // 1000 * 1000
+    gdf = rebuild(gdf, children, "submun_psgc", codes, "name")
+    gdf.loc[gdf["psgc_code"].isin(codes), "geom_src"] = "dissolved"
+    return gdf
+
+
 def check_shapeless(joined, shapeless):
     """Raise GeometryEditError unless each declared shapeless code is a PSGC row the join left without a shape.
 
@@ -344,7 +360,8 @@ def bgysubmuns(psgc_df, release, _children=None):
 
     Takes the barangay table (psgc.barangay_table), drops the source's reserved areas, applies the
     release's recodes, merges and plotted splits to the source, then runs the matching passes
-    (matching.run_passes). Complete is known with the approximated splits (written to dist/complete/).
+    (matching.run_passes), and gives the rebuilt sub-municipalities their barangays' union (rebuild_submuns).
+    Complete is known with the approximated splits (written to dist/complete/).
     """
     corrections = release.bgysubmuns
     psgc_df = psgc_df.rename(columns=BGY_PARENT_COLUMNS)
@@ -374,6 +391,7 @@ def bgysubmuns(psgc_df, release, _children=None):
     joined["adm2_psgc"] = parent_psgc(joined, "adm2_pcode", "00000")
     joined["adm3_psgc"] = parent_psgc(joined, "adm3_pcode", "000")
     fix_adm4_parents(joined, release)
+    joined = rebuild_submuns(joined, corrections.rebuild)
     keep = ["adm1_psgc", "adm2_psgc", "adm3_psgc", "psgc_code", "name", "geo_level", "geom_src"] + MEASURES
     names = ["adm1_psgc", "adm2_psgc", "adm3_psgc", "adm4_psgc", "adm4_en", "geo_level", "geom_src"] + MEASURES
     outputs = {"": finish(joined, keep, names)}

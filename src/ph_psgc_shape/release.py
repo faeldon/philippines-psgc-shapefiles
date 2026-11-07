@@ -151,6 +151,7 @@ class Bgysubmuns:  # pylint: disable=too-many-instance-attributes
     non_barangay_areas: dict[int, str]
     merges: tuple[Merge, ...] = ()
     shapeless: dict[int, str] = field(default_factory=dict)
+    rebuild: tuple[int, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -384,6 +385,12 @@ def _bgysubmuns(t: Table) -> Bgysubmuns:
     for s in t.tables("shapeless", []):
         shapeless[s.take("code", "int")] = s.take("note", "str")
         s.close()
+    rebuild = tuple(t.take("rebuild", "ints", []))
+    for i, code in enumerate(rebuild):
+        if code in rebuild[:i]:
+            t.fail(f"{t.key('rebuild')}[{i}]", f"duplicate code {code}")
+        if code in shapeless:
+            t.fail(f"{t.key('rebuild')}[{i}]", f"{code} is also shapeless; a rebuilt unit gets a shape")
     return closed(
         t,
         Bgysubmuns(
@@ -396,6 +403,7 @@ def _bgysubmuns(t: Table) -> Bgysubmuns:
             non_barangay_areas=areas,
             merges=merges,
             shapeless=shapeless,
+            rebuild=rebuild,
         ),
     )
 

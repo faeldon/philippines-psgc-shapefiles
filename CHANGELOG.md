@@ -67,6 +67,13 @@ the files in [`dist/`](dist/) reflect it. Newest first. Each title links to PSA'
 
 Changes to files already in `dist/` that aren't PSGC updates, newest first.
 
+**November 2026: Manila's sub-municipalities have shapes.** In Level 4 (both `dist/` and
+`dist/complete/`), Manila's 14 sub-municipalities (`1380601000` Tondo I/II to `1380614000` Santa
+Ana) had no shape and lengths and areas of 0. Each is now the union of its barangays, with
+`geom_src` `dissolved` and its length and area measured from that union. Their barangays are
+unchanged, so within Level 4 a sub-municipality overlaps its own barangays: to total an area, keep
+`geo_level == "Bgy"`. No other row changes. ([#1](https://github.com/faeldon/philippines-psgc-shapefiles/issues/1))
+
 **October 2026: the shapefiles moved to Releases.** The zips are no longer in `dist/`: each PSGC
 quarter is a [GitHub release](https://github.com/faeldon/philippines-psgc-shapefiles/releases) with
 its zips, its CSVs and a `SHA256SUMS`, and `releases/latest/download/<file>` always serves the newest

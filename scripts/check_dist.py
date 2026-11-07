@@ -186,6 +186,27 @@ def check_geom_src(name: str, df: pd.DataFrame, allowed=GEOM_SOURCES) -> list[st
     return problems
 
 
+def check_submun_areas(name: str, df: pd.DataFrame) -> list[str]:
+    """Return the problems with adm4's shaped sub-municipalities: each one's area is its barangays' (the Bgy rows
+    sharing its first 7 digits), within 1 m² per barangay, since each area_crs is truncated to an int. A
+    sub-municipality with geom_src none has no shape to check, and a frame without geom_src is check_geom_src's."""
+    if "geom_src" not in df.columns:
+        return []
+    bgy = df[df["geo_level"] == "Bgy"]
+    sums = bgy.groupby(bgy["adm4_psgc"] // 1000 * 1000)["area_crs"].agg(["sum", "count"])
+    problems = []
+    for _, row in df[(df["geo_level"] == "SubMun") & (df["geom_src"] != "none")].iterrows():
+        code = int(row["adm4_psgc"])
+        if code not in sums.index:
+            problems.append(f"{name}: sub-municipality {code} has a shape but no barangays")
+        elif abs(row["area_crs"] - sums.loc[code, "sum"]) > sums.loc[code, "count"]:
+            problems.append(
+                f"{name}: sub-municipality {code}'s area_crs {row['area_crs']} isn't its"
+                f" {sums.loc[code, 'count']} barangays' {sums.loc[code, 'sum']}"
+            )
+    return problems
+
+
 def check_complete(dist_dir, frames, psgc_codes, zips: bool = True) -> list[str]:
     """Return the problems with dist_dir/complete/'s adm4: CONTRACT 2 against dist_dir's levels, and its
     difference from known's adm4 (dist_dir's), which may only be in rows complete approximates."""
@@ -199,6 +220,7 @@ def check_complete(dist_dir, frames, psgc_codes, zips: bool = True) -> list[str]
         problems.extend(f"complete {p}" for p in check_zip(complete_dir, level, df))
     problems.extend(check_level(level, df, frames, psgc_codes, name="complete adm4"))
     problems.extend(check_geom_src("complete adm4", df))
+    problems.extend(check_submun_areas("complete adm4", df))
     if known is None or list(df.columns) != list(known.columns):
         return problems + ["complete adm4: columns differ from known's adm4"]
     if set(df[level.code]) != set(known[level.code]):
@@ -233,6 +255,7 @@ def check_dir(dist_dir, psgc_codes: dict[str, set[int]], zips: bool = True) -> l
         problems.extend(check_level(level, df, frames, psgc_codes))
     if frames["adm4"] is not None:
         problems.extend(check_geom_src("adm4", frames["adm4"], allowed=KNOWN_GEOM_SOURCES))
+        problems.extend(check_submun_areas("adm4", frames["adm4"]))
     if (Path(dist_dir) / COMPLETE).is_dir():
         problems.extend(check_complete(dist_dir, frames, psgc_codes, zips))
     return problems

@@ -179,7 +179,8 @@ def test_rebuilds_merges_shapeless_and_edits_are_read(tmp_path):
         "reserved_min = 900",
         "reserved_min = 900\n"
         'merges = [{ into = 401007019, from = [401007019, 401007038], note = "GR 234228" }]\n'
-        'shapeless = [{ code = 1903617146, note = "Angoyao: no published boundary" }]',
+        'shapeless = [{ code = 1903617146, note = "Angoyao: no published boundary" }]\n'
+        "rebuild = [1380601000]",
         1,
     )
     text += '\n[region]\nrebuild = [1800000000]\n\n[edits]\nplotted = "data/edit/x/plotted.geojson"\n'
@@ -189,7 +190,19 @@ def test_rebuilds_merges_shapeless_and_edits_are_read(tmp_path):
     assert release.region.rebuild == (1800000000,) and release.municities.rebuild == (1999901000,)
     assert release.bgysubmuns.merges[0].from_codes == (401007019, 401007038)
     assert release.bgysubmuns.shapeless == {1903617146: "Angoyao: no published boundary"}
+    assert release.bgysubmuns.rebuild == (1380601000,)
     assert release.edits.plotted == "data/edit/x/plotted.geojson" and release.edits.approximated is None
+
+
+def test_a_repeated_bgysubmuns_rebuild_code_fails(tmp_path):
+    path = edited(tmp_path, "reserved_min = 900", "reserved_min = 900\nrebuild = [1380601000, 1380601000]")
+    fails(path, "bgysubmuns.rebuild[1]", check_paths=False)
+
+
+def test_a_code_both_rebuilt_and_shapeless_fails(tmp_path):
+    both = 'reserved_min = 900\nrebuild = [1380601000]\nshapeless = [{ code = 1380601000, note = "Tondo" }]'
+    path = edited(tmp_path, "reserved_min = 900", both)
+    fails(path, "bgysubmuns.rebuild[0]", check_paths=False)
 
 
 def without_country_source(root):

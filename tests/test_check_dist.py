@@ -329,3 +329,37 @@ def test_check_takes_a_release(dist, monkeypatch, tmp_path):
     release = tmp_path / "next.toml"
     assert check_dist.main(["check", str(dist), "--release", str(release)]) == 0
     assert seen == [release]
+
+
+def submuns(area=200, geom_src="dissolved"):
+    """A sub-municipality and its two 100 m² barangays, with a barangay of another sub-municipality."""
+    return pd.DataFrame(
+        {
+            "adm4_psgc": [1380601000, 1380601001, 1380601002, 1380602001],
+            "geo_level": ["SubMun", "Bgy", "Bgy", "Bgy"],
+            "geom_src": [geom_src, "source", "source", "source"],
+            "area_crs": [area, 100, 100, 50],
+        }
+    )
+
+
+def test_a_sub_municipality_with_its_barangays_area_passes():
+    assert not check_dist.check_submun_areas("adm4", submuns(area=201))
+
+
+def test_a_sub_municipality_whose_area_isnt_its_barangays_fails():
+    assert check_dist.check_submun_areas("adm4", submuns(area=203)) == [
+        "adm4: sub-municipality 1380601000's area_crs 203 isn't its 2 barangays' 200"
+    ]
+
+
+def test_a_shaped_sub_municipality_without_barangays_fails():
+    df = submuns()
+    df = df[~df["adm4_psgc"].isin([1380601001, 1380601002])]
+    assert check_dist.check_submun_areas("adm4", df) == [
+        "adm4: sub-municipality 1380601000 has a shape but no barangays"
+    ]
+
+
+def test_a_sub_municipality_without_a_shape_isnt_checked():
+    assert not check_dist.check_submun_areas("adm4", submuns(area=0, geom_src="none"))

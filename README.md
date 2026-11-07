@@ -67,10 +67,10 @@ Levels 0–3 are the same for both: the four barangays sit inside their municipa
 | Value | The shape |
 | --- | --- |
 | `source` | The boundary file's own shape (see Sources), or what's left of it once a `plotted` barangay is cut out of it (Barobo's Javier). |
-| `dissolved` | The union of barangays PSA has merged. |
+| `dissolved` | The union of other shapes: barangays PSA has merged, and Manila's 14 sub-municipalities (the union of their barangays). |
 | `plotted` | Plotted from the bearings and distances of the law that created the barangay, and placed against the barangay it was cut from: Barobo's Guinhalinan (RA 11986) and Caloocan's 176-A to 176-F (RA 11993). The laws don't publish their survey monuments' coordinates, so the placement is fitted, and as accurate as the boundary file's own lines. |
 | `approximated` | Complete only: an indicative shape, as above. |
-| `none` | No shape. Manila's 14 sub-municipalities (their barangays hold the area), and in known the four barangays above. |
+| `none` | No shape: in known, the four barangays above. |
 
 Each zip holds one layer, `PH_AdmN_*.shp`, whose attributes match the CSV row for row. Geometries
 use EPSG:32651 (WGS 84 / UTM zone 51N), coordinates in metres. Corrections to files already
@@ -89,7 +89,10 @@ need a parent that PSA doesn't give them:
 
 - **Cities that PSA places under no province** (highly urbanized and independent component
   cities) carry their geographic province, or their NCR district, as `adm2_psgc`.
-- **Manila's sub-municipalities** and their barangays sit under the City of Manila.
+- **Manila's sub-municipalities** and their barangays sit under the City of Manila. Each
+  sub-municipality's shape is the union of its barangays, so in Level 4 the two overlap: to total an
+  area, keep `geo_level == "Bgy"`. Manila North Cemetery and Tutuban Mall belong to no
+  sub-municipality, so Tondo, Binondo and Santa Cruz have notches where they lie.
 - **BARMM's Special Geographic Area**: its eight municipalities (created in 2024) and their 63
   barangays sit under PSA's interim province code `1999900000`.
 
